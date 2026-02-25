@@ -10,20 +10,12 @@ export const HomeHero = (): JSX.Element => {
       <div className="container home-hero-content">
         <h1 className="home-hero-title">
           RACS TURNS EVERY <strong>OUTDOOR SPACE</strong> INTO
-          <br />
           A YEAR-ROUND <strong>COMFORT ZONE</strong> THROUGH
-          <br />
           ADVANCED OUTDOOR COOLING.
         </h1>
 
         <p className="home-hero-description">
-          We design, install, and maintain high-performance
-          <br />
-          cooling systems for villas, restaurants, hotels, and
-          <br />
-          large outdoor spaces, engineered for extreme Gulf
-          <br />
-          weather conditions.
+          We design, install, and maintain high-performance cooling systems for villas, restaurants, hotels, and large outdoor spaces, engineered for extreme Gulf weather conditions.
         </p>
 
         <a className="home-hero-cta" href="#company-profile">
@@ -33,9 +25,7 @@ export const HomeHero = (): JSX.Element => {
 
       <section className="container trusted-section trusted-section--hero" id="company-profile">
         <h2>
-          TRUSTED BY <strong>PROPERTY OWNERS,</strong>
-          <br />
-          <strong>HOSPITALITY LEADERS & DEVELOPERS</strong>
+          TRUSTED BY <strong>PROPERTY OWNERS, HOSPITALITY LEADERS &amp; DEVELOPERS</strong>
         </h2>
       </section>
     </section>

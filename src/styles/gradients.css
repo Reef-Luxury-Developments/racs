@@ -14,10 +14,76 @@
     linear-gradient(
       180deg,
       var(--racs-grad-white) 0%,
-      #e7ecfb 20%,
+      #e7ecfb 6%,
       var(--racs-grad-blue-1) 48%,
       var(--racs-grad-blue-2) 74%,
       var(--racs-grad-navy) 100%
+    );
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Projects hero background – white with intense blue top-right */
+.bg-racs-projects-hero {
+  background-color: #ffffff;
+  background-image: radial-gradient(
+      120% 120% at 85% 0%,
+      rgba(52, 91, 199, 0.95) 0%,
+      rgba(52, 91, 199, 0.35) 35%,
+      rgba(52, 91, 199, 0.05) 70%,
+      rgba(52, 91, 199, 0) 100%
+    );
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Services hero background – white with intense blue top-right */
+.bg-racs-services-hero {
+  background-color: #ffffff;
+  background-image: radial-gradient(
+      120% 120% at 85% 0%,
+      rgba(52, 91, 199, 0.95) 0%,
+      rgba(52, 91, 199, 0.35) 35%,
+      rgba(52, 91, 199, 0.05) 70%,
+      rgba(52, 91, 199, 0) 100%
+    );
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Ongoing projects */
+.bg-racs-projects-ongoing {
+  background: linear-gradient(180deg, #9BAEE4 0%, #345BC7 72.3%, #3359C2 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Contact hero – white with blue radial top-right (same family as services/projects) */
+.bg-racs-contact-hero {
+  background-color: #ffffff;
+  background-image: radial-gradient(
+      120% 120% at 85% 0%,
+      rgba(52, 91, 199, 0.95) 0%,
+      rgba(52, 91, 199, 0.35) 35%,
+      rgba(52, 91, 199, 0.05) 70%,
+      rgba(52, 91, 199, 0) 100%
+    );
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Contact "Get in Touch" – deep blue gradient */
+.bg-racs-contact-touch {
+  background-color: #141b41;
+  background-image:
+    radial-gradient(100% 100% at 10% 100%, rgba(52, 91, 199, 0.4) 0%, rgba(52, 91, 199, 0) 65%),
+    linear-gradient(
+      180deg,
+      #e7ecfb 0%,
+      #8ea4d8 8%,
+      #345bc7 36%,
+      #2a49a1 64%,
+      #1a2e5a 100%
     );
   background-repeat: no-repeat;
   background-size: cover;

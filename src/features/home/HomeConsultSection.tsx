@@ -2,6 +2,18 @@ import { useEffect, useRef, useState } from 'react';
 
 import consultIcon from '@/assets/icons/services/consult.svg';
 
+const serviceOptions = [
+  { id: 'outdoor-cooling', label: 'Outdoor Cooling Design and Build' },
+  { id: 'engineering-services', label: 'Engineering Services for Existing Buildings' },
+  { id: 'mep-services', label: 'MEP Services for New Buildings' },
+  { id: 'district-cooling', label: 'District-Cooling Solutions' },
+  { id: 'cooling-as-service', label: 'Cooling as a Service' },
+  { id: 'modeling', label: 'Modeling Services' },
+  { id: 'sustainability', label: 'Sustainability & Decarbonization' },
+  { id: 'digitalization', label: 'Digitalization & Smart Systems' },
+  { id: 'data-centers', label: 'Data Centers-Specific Services' },
+];
+
 const SCENE_URL = 'https://prod.spline.design/gXcQP6l55ruwhGI0/scene.splinecode';
 const OBJECT_ID = '4d4ea24f-5f17-45f8-a3b6-427bea394694';
 const BASE_SIZE = 600;
@@ -77,6 +89,48 @@ export const HomeConsultSection = (): JSX.Element => {
     };
   }, []);
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [selectedService, setSelectedService] = useState('');
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
+    event.preventDefault();
+
+    if (isSubmitting) return;
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    const payload = {
+      name: formData.get('name'),
+      company: formData.get('company'),
+      email: formData.get('email'),
+      phone: formData.get('phone'),
+      relatedService: formData.get('relatedService'),
+    };
+
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) throw new Error('Request failed');
+
+      setSubmitStatus('success');
+      setSelectedService('');
+      form.reset();
+    } catch {
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section className="home-consult" aria-label="Consult with our specialists">
       <div className="container home-consult-grid">
@@ -94,7 +148,7 @@ export const HomeConsultSection = (): JSX.Element => {
             Download Company Profile
           </a>
 
-          <form className="home-consult-form" onSubmit={(event) => event.preventDefault()}>
+          <form className="home-consult-form" onSubmit={handleSubmit}>
             <label>
               <input type="text" name="name" placeholder="Name" required />
             </label>
@@ -109,13 +163,48 @@ export const HomeConsultSection = (): JSX.Element => {
             </label>
 
             <label>
-              <input type="tel" name="phone" placeholder="Phone" required />
+              <input type="tel" name="phone" placeholder="Mobile" required />
+            </label>
+
+            <label className="home-consult-select-label">
+              <select
+                name="relatedService"
+                value={selectedService}
+                onChange={(e) => setSelectedService(e.target.value)}
+                className={selectedService ? 'has-value' : ''}
+                required
+              >
+                <option value="" disabled>
+                  Related Services
+                </option>
+                {serviceOptions.map((s) => (
+                  <option key={s.id} value={s.id}>
+                    {s.label}
+                  </option>
+                ))}
+              </select>
             </label>
 
             <div className="home-consult-form-bottom">
-              <p>By submitting, you agree to our Terms and Privacy Policy.</p>
-              <button type="submit">Submit</button>
+              <p>
+                By submitting, you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.
+              </p>
+              <button type="submit" disabled={isSubmitting}>
+                {isSubmitting ? 'Sending…' : 'Submit'}
+              </button>
             </div>
+
+            {submitStatus === 'success' ? (
+              <p className="home-consult-form-status home-consult-form-status--success">
+                Thank you. We will contact you shortly.
+              </p>
+            ) : null}
+
+            {submitStatus === 'error' ? (
+              <p className="home-consult-form-status home-consult-form-status--error">
+                Something went wrong. Please try again.
+              </p>
+            ) : null}
           </form>
         </div>
       </div>
