@@ -1,12 +1,12 @@
-import { useCallback, useMemo, useRef, useState } from 'react';
-import type { WheelEvent } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { motion, useScroll, useMotionValueEvent } from 'motion/react';
 
 import project1 from '@/assets/icons/projects/1.png';
 import project2 from '@/assets/icons/projects/2.png';
 import project3 from '@/assets/icons/projects/3.png';
 import project4 from '@/assets/icons/projects/4.png';
 
-type ProjectItem = {
+type ProjectSlide = {
   id: string;
   sideLabel: string;
   title: string;
@@ -15,9 +15,10 @@ type ProjectItem = {
   services: string;
   area: string;
   location: string;
+  isCta?: boolean;
 };
 
-const projects: ProjectItem[] = [
+const slides: ProjectSlide[] = [
   {
     id: 'al-mariah-waterfront',
     sideLabel: 'The Village Mall',
@@ -58,159 +59,280 @@ const projects: ProjectItem[] = [
     area: '9,300 m.',
     location: 'Doha, Qatar',
   },
+  {
+    id: 'cta',
+    sideLabel: '',
+    title: 'VIEW ALL PROJECTS',
+    image: '',
+    description: '',
+    services: '',
+    area: '',
+    location: '',
+    isCta: true,
+  },
 ];
 
-const WHEEL_STEP_COOLDOWN = 520;
+const SLIDE_COUNT = slides.length;
 
 export const HomeProjectsSection = (): JSX.Element => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const centerRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isSummary, setIsSummary] = useState(false);
-  const [visitedIndices, setVisitedIndices] = useState<number[]>([0]);
-  const lastWheelTimeRef = useRef(0);
+  const [mobileIndex, setMobileIndex] = useState(0);
 
-  const activeProject = useMemo(() => projects[activeIndex], [activeIndex]);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start start', 'end end'],
+  });
 
-  const viewedProjects = useMemo(() => {
-    return visitedIndices
-      .slice()
-      .sort((a, b) => a - b)
-      .map((index) => projects[index]);
-  }, [visitedIndices]);
+  useMotionValueEvent(scrollYProgress, 'change', (latest) => {
+    const index = Math.min(Math.max(Math.floor(latest * SLIDE_COUNT), 0), SLIDE_COUNT - 1);
+    setActiveIndex(index);
+  });
 
-  const markVisited = useCallback((index: number): void => {
-    setVisitedIndices((prev) => (prev.includes(index) ? prev : [...prev, index]));
+  const isCta = slides[activeIndex]?.isCta ?? false;
+
+  const scrollToSlide = useCallback((index: number) => {
+    const container = containerRef.current;
+    if (!container) return;
+    const rect = container.getBoundingClientRect();
+    const containerTop = window.scrollY + rect.top;
+    const scrollRange = container.scrollHeight - window.innerHeight;
+    const targetProgress = (index + 0.1) / SLIDE_COUNT;
+    window.scrollTo({ top: containerTop + targetProgress * scrollRange, behavior: 'smooth' });
   }, []);
 
-  const handleScrollStep = useCallback(
-    (direction: 1 | -1): void => {
-      if (direction === 1) {
-        if (isSummary) return;
+  useEffect(() => {
+    const el = centerRef.current;
+    if (!el) return;
 
-        if (activeIndex < projects.length - 1) {
-          const nextIndex = activeIndex + 1;
-          setActiveIndex(nextIndex);
-          markVisited(nextIndex);
-          return;
-        }
+    const onScroll = (): void => {
+      const children = el.children;
+      if (!children.length) return;
+      const firstChild = children[0] as HTMLElement;
+      const childWidth = firstChild.offsetWidth;
+      const gap = parseFloat(getComputedStyle(el).columnGap) || 16;
+      const step = childWidth + gap;
+      const index = step > 0 ? Math.min(Math.round(el.scrollLeft / step), SLIDE_COUNT - 1) : 0;
+      setMobileIndex(index);
+    };
 
-        setIsSummary(true);
-        return;
-      }
+    el.addEventListener('scroll', onScroll, { passive: true });
+    return () => el.removeEventListener('scroll', onScroll);
+  }, []);
 
-      if (isSummary) {
-        setIsSummary(false);
-        setActiveIndex(projects.length - 1);
-        return;
-      }
-
-      if (activeIndex > 0) {
-        setActiveIndex(activeIndex - 1);
-      }
-    },
-    [activeIndex, isSummary, markVisited],
-  );
-
-  const onProjectsWheel = (event: WheelEvent<HTMLDivElement>): void => {
-    if (window.innerWidth <= 960) return;
-
-    const now = performance.now();
-    if (now - lastWheelTimeRef.current < WHEEL_STEP_COOLDOWN) {
-      event.preventDefault();
-      return;
-    }
-
-    if (Math.abs(event.deltaY) < 10) return;
-
-    event.preventDefault();
-    lastWheelTimeRef.current = now;
-    handleScrollStep(event.deltaY > 0 ? 1 : -1);
-  };
+  const scrollToMobileDot = useCallback((index: number): void => {
+    const el = centerRef.current;
+    if (!el || !el.children[index]) return;
+    const child = el.children[index] as HTMLElement;
+    el.scrollTo({ left: child.offsetLeft - el.offsetLeft, behavior: 'smooth' });
+  }, []);
 
   return (
-    <section className="home-projects" aria-label="Projects">
-      <div className="home-projects-heading-wrap">
-        <div className="container home-projects-heading-content">
-          <h2 className="home-projects-title">PROJECTS</h2>
-          <a href="#" className={isSummary ? 'home-projects-heading-link is-visible' : 'home-projects-heading-link'}>
-            VIEW OUR PROJECTS
-          </a>
-        </div>
-      </div>
-
-      <div
-        className={isSummary ? 'home-projects-frame home-projects-frame--summary' : 'home-projects-frame'}
-        onWheel={onProjectsWheel}
-      >
-        <div className="home-projects-rail home-projects-rail--left">
-          {isSummary
-            ? viewedProjects.map((project) => (
-                <span key={project.id} className="home-projects-rail-item home-projects-rail-item--summary">
-                  {project.sideLabel}
-                </span>
-              ))
-            : (
-              <span className="home-projects-rail-item home-projects-rail-item--active">{activeProject.sideLabel}</span>
-              )}
-        </div>
-
-        {isSummary ? (
-          <div className="home-projects-summary">
-            <h3>
-              <span>READY TO SEE MORE?</span>
-            </h3>
-            <p>Explore our complete portfolio of projects across the region.</p>
-            <a href="#" className="home-projects-summary-button">
-              VIEW ALL PROJECTS
+    <div ref={containerRef} className="home-projects-scroll-container">
+      <section className="home-projects" aria-label="Projects">
+        <div className="home-projects-heading-wrap">
+          <div className="container home-projects-heading-content">
+            <h2 className="home-projects-title">PROJECTS</h2>
+            <a
+              href="#"
+              className={isCta ? 'home-projects-heading-link is-visible' : 'home-projects-heading-link'}
+            >
+              VIEW OUR PROJECTS
             </a>
           </div>
-        ) : (
-          <div className="home-projects-main" key={activeProject.id}>
-            <div className="home-projects-details">
-              <h3>{activeProject.title}</h3>
+        </div>
 
-              <div className="home-projects-meta-grid">
-                <div>
-                  <h4>Project Description</h4>
-                  <p>{activeProject.description}</p>
-                </div>
-                <div>
-                  <h4>Services</h4>
-                  <p>{activeProject.services}</p>
-                </div>
-                <div>
-                  <h4>Outdoor Area</h4>
-                  <p>{activeProject.area}</p>
-                </div>
-                <div>
-                  <h4>Location</h4>
-                  <p>{activeProject.location}</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="home-projects-image-wrap">
-              <img src={activeProject.image} alt={activeProject.title} className="home-projects-image" />
-            </div>
-          </div>
-        )}
-
-        {!isSummary ? (
-          <div className="home-projects-rail home-projects-rail--right" aria-label="Project list">
-            {projects.map((project, index) => {
-              const isActive = index === activeIndex;
+        <div className="home-projects-frame">
+          {/* Left sidebars — previously visited projects */}
+          <div className="home-projects-sidebars">
+            {slides.map((slide, index) => {
+              const isVisible = index < activeIndex;
 
               return (
-                <span
-                  key={project.id}
-                  className={isActive ? 'home-projects-rail-item home-projects-rail-item--active' : 'home-projects-rail-item'}
+                <motion.div
+                  key={`left-${slide.id}`}
+                  initial={false}
+                  animate={{ width: isVisible ? 60 : 0, opacity: isVisible ? 1 : 0 }}
+                  transition={{ duration: 0.5, ease: 'easeInOut' }}
+                  className="home-projects-sidebar-strip"
                 >
-                  {project.title}
-                </span>
+                  <button
+                    type="button"
+                    className="home-projects-sidebar-btn"
+                    onClick={() => scrollToSlide(index)}
+                  >
+                    <span className="home-projects-sidebar-label home-projects-sidebar-label--left">
+                      {slide.sideLabel || slide.title}
+                    </span>
+                  </button>
+                </motion.div>
               );
             })}
           </div>
-        ) : null}
-      </div>
-    </section>
+
+          {/* Center content — active slide */}
+          <div ref={centerRef} className="home-projects-center">
+            {slides.map((slide, index) => {
+              const isActive = index === activeIndex;
+
+              if (slide.isCta) {
+                return (
+                  <motion.div
+                    key={`center-${slide.id}`}
+                    className="home-projects-slide"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: isActive ? 1 : 0, zIndex: isActive ? 10 : 0 }}
+                    transition={{ duration: 0.5 }}
+                    style={{ pointerEvents: isActive ? 'auto' : 'none' }}
+                  >
+                    <div className="home-projects-summary">
+                      <motion.h3
+                        initial={{ scale: 0.9, opacity: 0 }}
+                        animate={isActive ? { scale: 1, opacity: 1 } : { scale: 0.9, opacity: 0 }}
+                        transition={{ delay: 0.2, duration: 0.5 }}
+                      >
+                        <span>READY TO SEE MORE?</span>
+                      </motion.h3>
+                      <motion.p
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={isActive ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+                        transition={{ delay: 0.3, duration: 0.5 }}
+                      >
+                        Explore our complete portfolio of projects across the region.
+                      </motion.p>
+                      <motion.a
+                        href="#"
+                        className="home-projects-summary-button"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={isActive ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+                        transition={{ delay: 0.4, duration: 0.5 }}
+                      >
+                        VIEW ALL PROJECTS
+                      </motion.a>
+                    </div>
+                  </motion.div>
+                );
+              }
+
+              return (
+                <motion.div
+                  key={`center-${slide.id}`}
+                  className="home-projects-slide"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: isActive ? 1 : 0, zIndex: isActive ? 10 : 0 }}
+                  transition={{ duration: 0.5 }}
+                  style={{ pointerEvents: isActive ? 'auto' : 'none' }}
+                >
+                  <div className="home-projects-main">
+                    <div className="home-projects-details">
+                      <motion.h3
+                        initial={{ y: 20, opacity: 0 }}
+                        animate={isActive ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
+                        transition={{ delay: 0.2, duration: 0.5 }}
+                      >
+                        {slide.title}
+                      </motion.h3>
+
+                      <div className="home-projects-meta-grid">
+                        <motion.div
+                          initial={{ y: 10, opacity: 0 }}
+                          animate={isActive ? { y: 0, opacity: 1 } : { y: 10, opacity: 0 }}
+                          transition={{ delay: 0.3, duration: 0.5 }}
+                        >
+                          <h4>Project Description</h4>
+                          <p>{slide.description}</p>
+                        </motion.div>
+                        <motion.div
+                          initial={{ y: 10, opacity: 0 }}
+                          animate={isActive ? { y: 0, opacity: 1 } : { y: 10, opacity: 0 }}
+                          transition={{ delay: 0.35, duration: 0.5 }}
+                        >
+                          <h4>Services</h4>
+                          <p>{slide.services}</p>
+                        </motion.div>
+                        <motion.div
+                          initial={{ y: 10, opacity: 0 }}
+                          animate={isActive ? { y: 0, opacity: 1 } : { y: 10, opacity: 0 }}
+                          transition={{ delay: 0.4, duration: 0.5 }}
+                        >
+                          <h4>Outdoor Area</h4>
+                          <p>{slide.area}</p>
+                        </motion.div>
+                        <motion.div
+                          initial={{ y: 10, opacity: 0 }}
+                          animate={isActive ? { y: 0, opacity: 1 } : { y: 10, opacity: 0 }}
+                          transition={{ delay: 0.45, duration: 0.5 }}
+                        >
+                          <h4>Location</h4>
+                          <p>{slide.location}</p>
+                        </motion.div>
+                      </div>
+                    </div>
+
+                    <div className="home-projects-image-wrap">
+                      <motion.div
+                        className="home-projects-image-inner"
+                        initial={{ scale: 1.1 }}
+                        animate={isActive ? { scale: 1 } : { scale: 1.1 }}
+                        transition={{ duration: 0.8, ease: 'easeOut' }}
+                      >
+                        {slide.image ? (
+                          <img
+                            src={slide.image}
+                            alt={slide.title}
+                            className="home-projects-image"
+                          />
+                        ) : null}
+                      </motion.div>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          {/* Right sidebars — upcoming projects */}
+          <div className="home-projects-sidebars">
+            {slides.map((slide, index) => {
+              const isVisible = index > activeIndex;
+
+              return (
+                <motion.div
+                  key={`right-${slide.id}`}
+                  initial={false}
+                  animate={{ width: isVisible ? 60 : 0, opacity: isVisible ? 1 : 0 }}
+                  transition={{ duration: 0.5, ease: 'easeInOut' }}
+                  className="home-projects-sidebar-strip home-projects-sidebar-strip--right"
+                >
+                  <button
+                    type="button"
+                    className="home-projects-sidebar-btn"
+                    onClick={() => scrollToSlide(index)}
+                  >
+                    <span className="home-projects-sidebar-label">
+                      {slide.sideLabel || slide.title}
+                    </span>
+                  </button>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Mobile dot indicators */}
+        <div className="home-projects-dots" aria-label="Slide indicators">
+          {slides.map((slide, index) => (
+            <button
+              key={slide.id}
+              type="button"
+              className={index === mobileIndex ? 'home-projects-dot is-active' : 'home-projects-dot'}
+              aria-label={`Go to slide ${index + 1}`}
+              onClick={() => scrollToMobileDot(index)}
+            />
+          ))}
+        </div>
+      </section>
+    </div>
   );
 };
