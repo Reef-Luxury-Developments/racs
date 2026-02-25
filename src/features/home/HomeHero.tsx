@@ -25,7 +25,8 @@ export const HomeHero = (): JSX.Element => {
 
       <section className="container trusted-section trusted-section--hero" id="company-profile">
         <h2>
-          TRUSTED BY <strong>PROPERTY OWNERS, HOSPITALITY LEADERS &amp; DEVELOPERS</strong>
+          <span className="trusted-section-line trusted-section-line--light">TRUSTED BY PROPERTY</span>{' '}
+          <span className="trusted-section-line trusted-section-line--dark">OWNERS, HOSPITALITY LEADERS &amp; DEVELOPERS</span>
         </h2>
       </section>
     </section>

@@ -147,18 +147,62 @@ const projects: ProjectData[] = [
   },
 ];
 
+type OngoingProjectScope = {
+  description: string;
+  services: string;
+  location: string;
+  outdoorScopeArea: { value: string; unit: string; label: string };
+};
+
 type OngoingProjectData = {
   id: string;
   title: string;
   category: string;
   locationShort: string;
   image: string;
+  scope?: OngoingProjectScope;
 };
 
 const ongoingProjects: OngoingProjectData[] = [
-  { id: 'reef-1000', title: 'REEF 1000 BUILDING', category: 'Design and Build', locationShort: 'Dubai, UAE', image: ongoingReef1000 },
-  { id: 'reef-999', title: 'REEF 999 BUILDING', category: 'Design and Build', locationShort: 'Dubai, UAE', image: ongoingReef999 },
-  { id: 'reef-998', title: 'REEF 998 BUILDING', category: 'Design and Build', locationShort: 'Dubai, UAE', image: ongoingReef998 },
+  {
+    id: 'reef-1000',
+    title: 'REEF 1000 BUILDING',
+    category: 'Design and Build',
+    locationShort: 'Dubai Land – UAE, Dubai',
+    image: ongoingReef1000,
+    scope: {
+      description: '125 Outdoor Balconies',
+      services: 'Design and Build',
+      location: 'Dubai Land – UAE, Dubai',
+      outdoorScopeArea: { value: '600', unit: 'm²', label: 'OUTDOOR SCOPE AREA' },
+    },
+  },
+  {
+    id: 'reef-999',
+    title: 'REEF 999 BUILDING',
+    category: 'Design and Build',
+    locationShort: 'Al-Farjan – UAE, Dubai',
+    image: ongoingReef999,
+    scope: {
+      description: '164 Outdoor Balconies - 24 Outdoor Winter Garden',
+      services: 'Design and Build',
+      location: 'Al-Farjan – UAE, Dubai',
+      outdoorScopeArea: { value: '2', unit: 'K m²', label: 'OUTDOOR SCOPE AREA' },
+    },
+  },
+  {
+    id: 'reef-998',
+    title: 'REEF 998 BUILDING',
+    category: 'Design and Build',
+    locationShort: 'Dubai Land – UAE, Dubai',
+    image: ongoingReef998,
+    scope: {
+      description: 'Outdoor Balconies & Winter Garden',
+      services: 'Design and Build',
+      location: 'Dubai Land – UAE, Dubai',
+      outdoorScopeArea: { value: '1.5', unit: 'K m²', label: 'OUTDOOR SCOPE AREA' },
+    },
+  },
 ];
 
 interface ArrowIconProps {
@@ -375,7 +419,46 @@ export const ProjectsPage = (): JSX.Element => {
                         layout
                       >
                         <div className="project-detail-inner">
-                          <p className="projects-ongoing-coming">Project details coming soon.</p>
+                          {project.scope ? (
+                            <>
+                              <div className="project-hero-image-wrap project-hero-image-wrap--ongoing">
+                                <img src={project.image} alt={project.title} className="project-hero-image" />
+                              </div>
+                              <div className="project-ongoing-row">
+                                <div className="project-ongoing-row-label">
+                                  <h3>PROJECT<br />SCOPE</h3>
+                                </div>
+                                <div className="project-ongoing-row-content">
+                                  <dl className="project-ongoing-scope-dl">
+                                    <div>
+                                      <dt>Description</dt>
+                                      <dd>{project.scope.description}</dd>
+                                    </div>
+                                    <div>
+                                      <dt>Services</dt>
+                                      <dd>{project.scope.services}</dd>
+                                    </div>
+                                    <div>
+                                      <dt>Location</dt>
+                                      <dd>{project.scope.location}</dd>
+                                    </div>
+                                  </dl>
+                                  <a href={`/projects#${project.id}`} className="project-ongoing-cta-btn">
+                                    VIEW FULL PROJECT PAGE
+                                  </a>
+                                </div>
+                                <div className="project-ongoing-row-stat">
+                                  <span className="project-ongoing-stat-value">
+                                    {project.scope.outdoorScopeArea.value}{' '}
+                                    <span className="project-ongoing-stat-unit">{project.scope.outdoorScopeArea.unit}</span>
+                                  </span>
+                                  <span className="project-ongoing-stat-label">{project.scope.outdoorScopeArea.label}</span>
+                                </div>
+                              </div>
+                            </>
+                          ) : (
+                            <p className="projects-ongoing-coming">Project details coming soon.</p>
+                          )}
                         </div>
                       </motion.article>
                     ) : null}
