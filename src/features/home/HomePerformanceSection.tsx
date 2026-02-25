@@ -8,10 +8,10 @@ const benefits = [
 ];
 
 const metrics = [
-  { end: 300, prefix: '>', suffix: ' KTR', label: 'Cooling Delivered' },
-  { end: 15000, prefix: '<', suffix: ' M2', label: 'Sqm Outdoor Area Cooled' },
-  { end: 30, label: 'Projects Completed' },
-  { end: 30, label: 'Engineers & Project Management' },
+  { end: 300, suffix: '+ KTR', label: 'Cooling Delivered' },
+  { end: 30, suffix: '+', label: 'Projects Completed' },
+  { end: 15000, suffix: '+ M2', label: 'Sqm Outdoor Area Cooled' },
+  { end: 30, suffix: '+', label: 'Engineers & Project Management' },
   { end: 10, label: 'Simulation Experts' },
 ];
 
