@@ -2,10 +2,10 @@ import { useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { Header } from '@/components/layout/Header';
 
-import project1 from '@/assets/icons/projects/1.png';
-import project2 from '@/assets/icons/projects/2.png';
-import project3 from '@/assets/icons/projects/3.png';
-import project4 from '@/assets/icons/projects/4.png';
+import project1 from '@/assets/icons/projects/al-maryah-waterfront.jpg';
+import project2 from '@/assets/icons/projects/Al Hamza mall.jpg';
+import project3 from '@/assets/icons/projects/vip place.jpg';
+import project4 from '@/assets/icons/projects/othaim-mall.jpg';
 import arrowIcon from '@/assets/icons/projects/arrow.svg';
 import arrowDownRightIcon from '@/assets/icons/projects/arrow-down-right.svg';
 import ongoingReef1000 from '@/assets/icons/projects/comming-reef-1000.webp';

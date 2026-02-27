@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useMotionValueEvent } from 'motion/react';
 
-import project1 from '@/assets/icons/projects/1.png';
-import project2 from '@/assets/icons/projects/2.png';
-import project3 from '@/assets/icons/projects/3.png';
-import project4 from '@/assets/icons/projects/4.png';
+import project1 from '@/assets/icons/projects/al-maryah-waterfront.jpg';
+import project2 from '@/assets/icons/projects/vip place.jpg';
+import project3 from '@/assets/icons/projects/othaim-mall.jpg';
+import project4 from '@/assets/icons/projects/Al Hamza mall.jpg';
 
 type ProjectSlide = {
   id: string;
