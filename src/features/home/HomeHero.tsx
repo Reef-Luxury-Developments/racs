@@ -1,6 +1,7 @@
 import { Header } from '@/components/layout/Header';
+import { TemperatureWidget } from '@/components/common/TemperatureWidget';
 
-import bgImage from '@/assets/images/bg.png';
+import bgImage from '@/assets/images/hero-bg.png';
 
 export const HomeHero = (): JSX.Element => {
   return (
@@ -23,12 +24,7 @@ export const HomeHero = (): JSX.Element => {
         </a>
       </div>
 
-      <section className="container trusted-section trusted-section--hero" id="company-profile">
-        <h2>
-          <span className="trusted-section-line trusted-section-line--light">TRUSTED BY PROPERTY</span>{' '}
-          <span className="trusted-section-line trusted-section-line--dark">OWNERS, HOSPITALITY LEADERS &amp; DEVELOPERS</span>
-        </h2>
-      </section>
+      <TemperatureWidget />
     </section>
   );
 };

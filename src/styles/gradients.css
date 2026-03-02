@@ -8,17 +8,7 @@
 /* Reusable radial background area */
 .bg-racs-home-radial {
   background-color: var(--racs-grad-navy);
-  background-image:
-    radial-gradient(120% 90% at 14% 0%, rgba(255, 255, 255, 0.52) 0%, rgba(255, 255, 255, 0) 48%),
-    radial-gradient(100% 120% at 82% 90%, rgba(52, 91, 199, 0.58) 0%, rgba(52, 91, 199, 0.08) 52%, rgba(52, 91, 199, 0) 72%),
-    linear-gradient(
-      180deg,
-      var(--racs-grad-white) 0%,
-      #e7ecfb 6%,
-      var(--racs-grad-blue-1) 48%,
-      var(--racs-grad-blue-2) 74%,
-      var(--racs-grad-navy) 100%
-    );
+  background: linear-gradient(180deg, #FFF 7.88%, #345BC7 30.9%, #141B41 61.03%, #2A49A1 100%);
   background-repeat: no-repeat;
   background-size: cover;
 }
