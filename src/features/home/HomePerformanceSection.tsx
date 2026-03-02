@@ -17,7 +17,13 @@ const metrics = [
 
 export const HomePerformanceSection = (): JSX.Element => {
   return (
-    <section className="home-performance" aria-label="Performance highlights">
+    <>  <section className="container trusted-section trusted-section--hero" id="company-profile">
+    <h2>
+      <span className="trusted-section-line trusted-section-line--light">TRUSTED BY PROPERTY</span>{' '}
+      <span className="trusted-section-line trusted-section-line--dark">OWNERS, HOSPITALITY LEADERS &amp; DEVELOPERS</span>
+    </h2>
+  </section>
+  <section className="home-performance" aria-label="Performance highlights">
       <div className="home-performance-benefits">
         {benefits.map((benefit) => (
           <div key={benefit} className="home-performance-benefit-row">
@@ -39,5 +45,7 @@ export const HomePerformanceSection = (): JSX.Element => {
         ))}
       </div>
     </section>
+    </>
+    
   );
 };

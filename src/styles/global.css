@@ -67,6 +67,11 @@ img {
 
 .site-header--hero {
   background: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
 }
 
 .header-content {
@@ -122,24 +127,28 @@ img {
 
 .home-page {
   overflow-x: clip;
+  position: relative;
 }
 
 .home-hero {
+  position: relative;
   background-color: var(--surface);
   background-position: right top;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  min-height: 720px;
+  min-height: 100dvh;
+  display: flex;
+  align-items: end;
 }
 
 .home-hero-content {
-  padding-top: 5.6rem;
-  padding-bottom: 4.4rem;
+  padding: 2rem;
+  padding-bottom: 7rem;
 }
 
 .home-hero-title {
   margin: 0;
-  max-width: 760px;
+  max-width: 850px;
   color: var(--text-primary);
   font-family: 'Space Grotesk', sans-serif;
   font-size: clamp(2rem, 3vw, 2.713rem);
@@ -157,6 +166,7 @@ img {
   margin-top: 1rem;
   max-width: 520px;
   color: var(--text-secondary);
+  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
   font-size: clamp(0.95rem, 1vw, 1.1rem);
   line-height: 1.45;
 }
@@ -172,12 +182,110 @@ img {
   border: 1px solid rgba(255, 255, 255, 0.55);
   background: rgba(218, 224, 241, 0.85);
   color: #0f4c81;
+  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
   font-size: clamp(0.95rem, 1vw, 1.05rem);
   font-weight: 600;
 }
 
 .home-hero-cta:hover {
   background: rgba(207, 216, 239, 1);
+}
+
+/* Temperature Widget */
+.home-hero-temperature-widget {
+  position: absolute;
+  right: 2.116vw; /* 32px / 1512px * 100 */
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.21);
+  border-radius: 1.893vw; /* 28.605px / 1512px * 100 */
+  padding: 0.794vw 1.521vw; /* 12px 23px / 1512px * 100 */
+  display: flex;
+  align-items: flex-end;
+  gap: 2.447vw; /* 37px / 1512px * 100 */
+  z-index: 10;
+}
+
+.home-hero-temperature-widget-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.058vw; /* 16px / 1512px * 100 */
+  padding-bottom: 1.058vw; /* 16px / 1512px * 100 */
+  width: 5.954vw; /* 90px / 1512px * 100 */
+  flex-shrink: 0;
+}
+
+.home-hero-temperature-widget-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1.058vw; /* 16px / 1512px * 100 */
+  padding-bottom: 1.058vw; /* 16px / 1512px * 100 */
+  width: 5.831vw; /* 88.184px / 1512px * 100 */
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.home-hero-temperature-value {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 300;
+  font-size: 2.666vw; /* 40.295px / 1512px * 100 */
+  line-height: 1.07;
+  letter-spacing: -0.0293vw; /* -0.4432px / 1512px * 100 */
+  text-transform: uppercase;
+  white-space: nowrap;
+  margin: 0;
+  width: 100%;
+  text-align: inherit;
+}
+
+.home-hero-temperature-value--white {
+  color: #ffffff;
+}
+
+.home-hero-temperature-value--orange {
+  color: #ffa993;
+}
+
+.home-hero-temperature-label {
+  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 1.183vw; /* 17.878px / 1512px * 100 */
+  line-height: 1.5;
+  text-transform: uppercase;
+  white-space: nowrap;
+  margin: 0;
+  width: 100%;
+  text-align: inherit;
+}
+
+.home-hero-temperature-label--white {
+  color: #ffffff;
+}
+
+.home-hero-temperature-label--orange {
+  color: #ffa993;
+}
+
+.home-hero-temperature-widget-separator {
+  display: flex;
+  align-items: flex-end;
+  height: 7.888vw; /* 119.188px / 1512px * 100 */
+  width: 0.789vw; /* 11.919px / 1512px * 100 */
+  padding: 0.158vw; /* 2.384px / 1512px * 100 */
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 78.694vw; /* 1190.691px / 1512px * 100 */
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.home-hero-temperature-widget-separator-bar {
+  width: 100%;
+  height: 3.864vw; /* 58.402px / 1512px * 100 */
+  background: #012ef0;
+  border-radius: 7.888vw; /* 119.188px / 1512px * 100 */
+  flex: 1 0 0;
 }
 
 .trusted-section {
@@ -192,6 +300,7 @@ img {
 
 .trusted-section h2 {
   margin: 0 auto;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: clamp(2rem, 3.3vw, 3.5rem);
   line-height: 1.2;
   font-weight: 300;
@@ -448,15 +557,18 @@ img {
   }
 
   .about-hero-title {
+    font-family: 'Space Grotesk', sans-serif;
     font-size: clamp(2.5rem, 13vw, 4.3rem);
   }
 
   .about-hero-lead {
+    font-family: 'Space Grotesk', sans-serif;
     max-width: none;
     font-size: clamp(0.95rem, 3.7vw, 1.25rem);
   }
 
   .about-hero-description {
+    font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
     margin-top: 0.2rem;
     grid-column: auto;
     font-size: clamp(0.95rem, 3.8vw, 1.1rem);
@@ -474,11 +586,13 @@ img {
   }
 
   .about-values-row h2 {
+    font-family: 'Space Grotesk', sans-serif;
     font-size: clamp(2rem, 11vw, 3rem);
     line-height: 1.02;
   }
 
   .about-values-row p {
+    font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
     font-size: clamp(0.95rem, 3.9vw, 1.05rem);
   }
 
@@ -497,10 +611,12 @@ img {
   }
 
   .about-ceo-content h2 {
+    font-family: 'Space Grotesk', sans-serif;
     font-size: clamp(1.8rem, 8vw, 2.3rem);
   }
 
   .about-ceo-content p {
+    font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
     margin-top: 1rem;
     font-size: clamp(0.92rem, 3.8vw, 1.02rem);
   }
@@ -566,6 +682,7 @@ h2 {
 .home-performance-benefit-row p {
   margin: 0;
   padding: 1.55rem 0;
+  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
   font-size: clamp(1.7rem, 2.2vw, 2.95rem);
   line-height: 1.2;
   font-weight: 400;
@@ -585,6 +702,7 @@ h2 {
 
 .home-performance-stat-card h3 {
   margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: clamp(2.6rem, 3.2vw, 4rem);
   line-height: 1;
   font-weight: 700;
@@ -596,6 +714,7 @@ h2 {
 .home-performance-stat-card p {
   margin: 1rem auto 0;
   max-width: 14ch;
+  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
   font-size: clamp(0.95rem, 1.1vw, 1.5rem);
   line-height: 1.35;
   color: #204a79;
@@ -614,6 +733,7 @@ h2 {
 .home-services-title {
   margin: 0 0 clamp(1.6rem, 2.6vw, 2.6rem);
   color: #ffffff;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: clamp(2.4rem, 6vw, 6.2rem);
   line-height: 1;
   font-weight: 300;
@@ -643,6 +763,7 @@ h2 {
   margin: 0;
   max-width: 20ch;
   color: rgba(255, 255, 255, 0.95);
+  font-family: 'Space Grotesk', sans-serif;
   font-size: clamp(1rem, 1.15vw, 1.35rem);
   line-height: 1.2;
   font-weight: 500;
@@ -1071,7 +1192,40 @@ h2 {
   .home-hero {
     background-position: 72% center;
     background-size: cover;
-    min-height: auto;
+  }
+
+  .home-hero-temperature-widget {
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
+    margin-top: 2rem;
+    align-self: flex-start;
+    padding: 0.95rem 1.4rem;
+    gap: 1.5rem;
+  }
+
+  .home-hero-temperature-widget-left,
+  .home-hero-temperature-widget-right {
+    width: auto;
+    min-width: 70px;
+  }
+
+  .home-hero-temperature-value {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+  }
+
+  .home-hero-temperature-label {
+    font-size: clamp(0.75rem, 2vw, 1rem);
+  }
+
+  .home-hero-temperature-widget-separator {
+    height: 4rem;
+    width: 0.5rem;
+  }
+
+  .home-hero-temperature-widget-separator-bar {
+    height: 2rem;
   }
 
   .home-hero-content {
@@ -1086,10 +1240,12 @@ h2 {
   .home-hero-title {
     max-width: 20ch;
     font-size: clamp(2rem, 7vw, 2.9rem);
+    font-family: 'Space Grotesk', sans-serif;
   }
 
   .home-hero-description {
     max-width: 38ch;
+    font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
   }
 
   .trusted-section--hero {
@@ -1102,12 +1258,14 @@ h2 {
   }
 
   .trusted-section h2 {
+    font-family: 'Space Grotesk', sans-serif;
     font-size: clamp(1.6rem, 5.5vw, 2.4rem);
     max-width: 20ch;
     margin-inline: 0;
   }
 
   .home-performance-benefit-row p {
+    font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
     font-size: clamp(1.4rem, 4.8vw, 2.2rem);
     padding: 1.15rem 0;
   }
@@ -1126,11 +1284,13 @@ h2 {
   }
 
   .home-performance-stat-card h3 {
+    font-family: 'Space Grotesk', sans-serif;
     font-size: clamp(1.65rem, 4.5vw, 2.25rem);
     white-space: normal;
   }
 
   .home-performance-stat-card p {
+    font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
     max-width: 20ch;
     font-size: 0.875rem;
     margin: 0.4rem 0 0;
@@ -1151,6 +1311,7 @@ h2 {
   }
 
   .home-services-card h3 {
+    font-family: 'Space Grotesk', sans-serif;
     font-size: clamp(0.95rem, 2.8vw, 1.25rem);
   }
 
@@ -1302,26 +1463,60 @@ h2 {
     padding: 1rem 0;
   }
 
-  .home-hero {
-    min-height: auto;
-  }
 
   .home-hero-title {
     line-height: 1.1;
     max-width: none;
+    font-family: 'Space Grotesk', sans-serif;
   }
 
   .home-hero-description {
     max-width: none;
     font-size: 0.95rem;
+    font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
   }
 
   .home-hero-cta {
-    width: 100%;
     font-size: 0.95rem;
+    font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+  }
+
+  .home-hero-temperature-widget {
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
+    margin-top: 1.5rem;
+    align-self: flex-start;
+    padding: 0.75rem 1rem;
+    gap: 1rem;
+  }
+
+  .home-hero-temperature-widget-left,
+  .home-hero-temperature-widget-right {
+    width: auto;
+    min-width: 60px;
+  }
+
+  .home-hero-temperature-value {
+    font-size: clamp(1.25rem, 6vw, 2rem);
+  }
+
+  .home-hero-temperature-label {
+    font-size: clamp(0.7rem, 2.5vw, 0.9rem);
+  }
+
+  .home-hero-temperature-widget-separator {
+    height: 3rem;
+    width: 0.4rem;
+  }
+
+  .home-hero-temperature-widget-separator-bar {
+    height: 1.5rem;
   }
 
   .home-performance-benefit-row p {
+    font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
     font-size: clamp(1.25rem, 6.4vw, 1.65rem);
   }
 
@@ -1334,15 +1529,18 @@ h2 {
   }
 
   .home-performance-stat-card h3 {
+    font-family: 'Space Grotesk', sans-serif;
     font-size: clamp(1.5rem, 5vw, 2rem);
   }
 
   .home-performance-stat-card p {
+    font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
     font-size: 0.8rem;
     margin-top: 0.35rem;
   }
 
   .home-services-title {
+    font-family: 'Space Grotesk', sans-serif;
     font-size: clamp(2rem, 12vw, 3rem);
   }
 
@@ -1971,6 +2169,7 @@ h2 {
   }
 
   .home-consult-content h2 {
+    font-family: 'Space Grotesk', sans-serif;
     font-size: clamp(2rem, 9vw, 3.2rem);
   }
 
@@ -2003,10 +2202,12 @@ h2 {
   }
 
   .home-faq-title-wrap h2 {
+    font-family: 'Space Grotesk', sans-serif;
     font-size: clamp(1.8rem, 10vw, 2.7rem);
   }
 
   .home-faq-trigger {
+    font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
     font-size: 0.95rem;
     padding: 1rem 0;
   }
@@ -2989,6 +3190,7 @@ h2 {
 
   .services-hero-title,
   .projects-hero-title {
+    font-family: 'Space Grotesk', sans-serif;
     font-size: clamp(2.5rem, 13vw, 4.3rem);
   }
 
@@ -3432,6 +3634,7 @@ h2 {
   }
 
   .contact-hero-title {
+    font-family: 'Space Grotesk', sans-serif;
     font-size: clamp(2.5rem, 13vw, 4.3rem);
   }
 
@@ -3441,6 +3644,7 @@ h2 {
   }
 
   .contact-touch-title {
+    font-family: 'Space Grotesk', sans-serif;
     font-size: clamp(2rem, 9vw, 3.2rem);
   }
 
@@ -3463,6 +3667,7 @@ h2 {
   }
 
   .contact-service-card-title {
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 0.68rem;
   }
 
@@ -3503,6 +3708,7 @@ h2 {
   }
 
   .contact-service-card-title {
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 13px;
   }
 
