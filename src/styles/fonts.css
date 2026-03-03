@@ -1,0 +1,13 @@
+/**
+ * Space Grotesk from original source (Florian Karsten)
+ * Google Fonts strips OpenType features (ss01–ss04); this preserves them for font-feature-settings: 'ss04'
+ * Variable font: https://github.com/floriankarsten/space-grotesk
+ */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/gh/floriankarsten/space-grotesk@2.0.0/fonts/woff2/SpaceGrotesk%5Bwght%5D.woff2')
+    format('woff2-variations');
+}

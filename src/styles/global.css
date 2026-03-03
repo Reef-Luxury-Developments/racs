@@ -14,6 +14,15 @@
   box-sizing: border-box;
 }
 
+html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
 html,
 body,
 #root {
@@ -31,6 +40,19 @@ body.menu-open {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+/* All titles - Space Grotesk with ss04 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+[class*="-title"],
+[class*="subtitle"] {
+  font-family: "Space Grotesk", sans-serif;
+  font-feature-settings: "ss04" on;
 }
 
 img {
@@ -104,7 +126,7 @@ img {
 
 .nav-item {
   color: rgba(15, 23, 42, 0.62);
-  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-size: clamp(0.82rem, 0.78vw, 0.95rem);
   line-height: 1;
 }
@@ -116,7 +138,7 @@ img {
 .contact-link {
   justify-self: end;
   color: var(--contact-color);
-  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-size: clamp(0.82rem, 0.78vw, 0.95rem);
   font-weight: 500;
 }
@@ -143,15 +165,15 @@ img {
 
 .home-hero-content {
   padding: 2rem;
-  padding-bottom: 7rem;
+  padding-bottom: 23dvh;
 }
 
 .home-hero-title {
   margin: 0;
-  max-width: 850px;
+  max-width: 31ch;
   color: var(--text-primary);
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(2rem, 3vw, 2.713rem);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(2rem, 2.87169312vw, 50rem);
   line-height: 1.16;
   letter-spacing: -0.006em;
   font-weight: 400;
@@ -166,7 +188,7 @@ img {
   margin-top: 1rem;
   max-width: 520px;
   color: var(--text-secondary);
-  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-size: clamp(0.95rem, 1vw, 1.1rem);
   line-height: 1.45;
 }
@@ -182,7 +204,7 @@ img {
   border: 1px solid rgba(255, 255, 255, 0.55);
   background: rgba(218, 224, 241, 0.85);
   color: #0f4c81;
-  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-size: clamp(0.95rem, 1vw, 1.05rem);
   font-weight: 600;
 }
@@ -228,7 +250,7 @@ img {
 }
 
 .home-hero-temperature-value {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   font-weight: 300;
   font-size: 2.666vw; /* 40.295px / 1512px * 100 */
   line-height: 1.07;
@@ -249,7 +271,7 @@ img {
 }
 
 .home-hero-temperature-label {
-  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-weight: 600;
   font-size: 1.183vw; /* 17.878px / 1512px * 100 */
   line-height: 1.5;
@@ -294,13 +316,13 @@ img {
 }
 
 .trusted-section--hero {
-  padding-top: 3.5rem;
-  padding-bottom: 4rem;
+  padding-top: 9rem;
+  padding-bottom: 5rem;
 }
 
 .trusted-section h2 {
   margin: 0 auto;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   font-size: clamp(2rem, 3.3vw, 3.5rem);
   line-height: 1.2;
   font-weight: 300;
@@ -308,13 +330,13 @@ img {
 }
 
 .trusted-section-line--light {
-  color: #6b9bc7;
+  color: #104b86;
   font-weight: 300;
 }
 
 .trusted-section-line--dark {
-  color: #2f5b9b;
-  font-weight: 700;
+  color: #104b86;
+  font-weight: 500;
 }
 
 .page {
@@ -325,7 +347,13 @@ img {
   min-height: 100%;
   --about-left-col: clamp(210px, 18vw, 280px);
   --about-col-gap: clamp(1.6rem, 4vw, 4.2rem);
-  background: linear-gradient(180deg, #f9fbff 12%, #c9d5f1 36%, #6f8adc 68%, #345bc7 100%);
+  background: linear-gradient(
+    180deg,
+    #f9fbff 12%,
+    #c9d5f1 36%,
+    #6f8adc 68%,
+    #345bc7 100%
+  );
 }
 
 .about-page .container {
@@ -376,7 +404,7 @@ img {
 .about-hero-title {
   margin: 0;
   color: #104b86;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   font-size: clamp(3rem, 8vw, 7.4rem);
   line-height: 0.98;
   letter-spacing: -0.02em;
@@ -388,7 +416,7 @@ img {
   margin: clamp(1rem, 2.4vw, 1.75rem) 0 0;
   max-width: 36ch;
   color: #104b86;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   font-size: clamp(1rem, 1.65vw, 2.05rem);
   line-height: 1.2;
   letter-spacing: -0.01em;
@@ -404,7 +432,7 @@ img {
   grid-column: 2;
   max-width: 760px;
   color: rgba(16, 75, 134, 0.92);
-  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-size: clamp(1rem, 1.1vw, 1.5rem);
   line-height: 1.45;
   letter-spacing: -0.008em;
@@ -427,7 +455,7 @@ img {
 .about-values-row h2 {
   margin: 0;
   color: #f3f7ff;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   font-weight: 400;
   font-size: clamp(2.2rem, 5.2vw, 4.2rem);
   line-height: 1.05;
@@ -438,7 +466,7 @@ img {
   margin: 0;
   max-width: 88ch;
   color: rgba(237, 243, 255, 0.92);
-  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-weight: 400;
   font-size: clamp(1rem, 1.1vw, 1.3rem);
   line-height: 1.5;
@@ -471,13 +499,14 @@ img {
 .about-ceo-content {
   position: relative;
   overflow: hidden;
-  padding: clamp(1.6rem, 2.8vw, 2.4rem) clamp(0.8rem, 1.8vw, 1.8rem) clamp(1.6rem, 3vw, 2.6rem) 0;
+  padding: clamp(1.6rem, 2.8vw, 2.4rem) clamp(0.8rem, 1.8vw, 1.8rem)
+    clamp(1.6rem, 3vw, 2.6rem) 0;
 }
 
 .about-ceo-content h2 {
   margin: 0;
   color: #f3f7ff;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   font-weight: 400;
   font-size: clamp(2.1rem, 3.1vw, 3.25rem);
   line-height: 1.1;
@@ -491,7 +520,7 @@ img {
   margin: clamp(1.8rem, 2.6vw, 2.4rem) 0 0;
   max-width: 70ch;
   color: rgba(237, 243, 255, 0.92);
-  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-weight: 400;
   font-size: clamp(0.9rem, 0.95vw, 1.02rem);
   line-height: 1.5;
@@ -557,18 +586,18 @@ img {
   }
 
   .about-hero-title {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-size: clamp(2.5rem, 13vw, 4.3rem);
   }
 
   .about-hero-lead {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     max-width: none;
     font-size: clamp(0.95rem, 3.7vw, 1.25rem);
   }
 
   .about-hero-description {
-    font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+    font-family: "General Sans Variable", "Space Grotesk", sans-serif;
     margin-top: 0.2rem;
     grid-column: auto;
     font-size: clamp(0.95rem, 3.8vw, 1.1rem);
@@ -586,13 +615,13 @@ img {
   }
 
   .about-values-row h2 {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-size: clamp(2rem, 11vw, 3rem);
     line-height: 1.02;
   }
 
   .about-values-row p {
-    font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+    font-family: "General Sans Variable", "Space Grotesk", sans-serif;
     font-size: clamp(0.95rem, 3.9vw, 1.05rem);
   }
 
@@ -611,12 +640,12 @@ img {
   }
 
   .about-ceo-content h2 {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-size: clamp(1.8rem, 8vw, 2.3rem);
   }
 
   .about-ceo-content p {
-    font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+    font-family: "General Sans Variable", "Space Grotesk", sans-serif;
     margin-top: 1rem;
     font-size: clamp(0.92rem, 3.8vw, 1.02rem);
   }
@@ -656,15 +685,167 @@ h2 {
   color: #334155;
 }
 
+/* Site footer — exact Figma properties (node 411-1192) */
 .site-footer {
-  border-top: 1px solid #e2e8f0;
-  padding: 1.15rem 0;
-  font-size: 0.8rem;
-  color: #64748b;
+  background: #1b295d;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  width: 100%;
 }
 
-.app-shell:has(.contact-page) > .site-footer {
-  display: none;
+.site-footer-main {
+  display: flex;
+  gap: 32px;
+  padding: 72px 32px;
+  width: 100%;
+  align-items: flex-start;
+  flex-shrink: 0;
+  max-width: min(1536px, calc(100% - 4rem));
+  margin-inline: auto;
+  box-sizing: border-box;
+}
+
+.site-footer-col {
+  flex: 1 0 0;
+  min-height: 1px;
+  min-width: 1px;
+}
+
+.site-footer-brand {
+  display: flex;
+  align-items: center;
+}
+
+.site-footer-logo-link {
+  display: block;
+  flex-shrink: 0;
+}
+
+.site-footer-logo {
+  width: 105px;
+  height: 138px;
+  object-fit: contain;
+  display: block;
+  max-width: none;
+}
+
+.site-footer-links,
+.site-footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 39px;
+  font-size: 15px;
+  line-height: 1.5;
+  font-style: normal;
+}
+
+.site-footer-heading {
+  margin: 0;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #ffffff;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.site-footer-nav,
+.site-footer-contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.site-footer-link,
+.site-footer-contact-info a {
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 200ms ease;
+}
+
+.site-footer-link:hover,
+.site-footer-contact-info a:hover {
+  color: #ffffff;
+}
+
+.site-footer-address {
+  margin: 0;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.26;
+  color: rgba(255, 255, 255, 0.7);
+  font-style: normal;
+}
+
+.site-footer-bottom {
+  background: #1b295d;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: none;
+  border-right: none;
+  padding: 24px 32px;
+  width: 100%;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.site-footer-copyright {
+  margin: 0 auto;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.26;
+  color: #ffffff;
+  font-style: normal;
+  max-width: min(1536px, calc(100% - 4rem));
+}
+
+@media (max-width: 960px) {
+  .site-footer-main {
+    flex-direction: column;
+    gap: 2.5rem;
+    padding: 3rem 1.5rem;
+  }
+
+  .site-footer-links,
+  .site-footer-contact {
+    gap: 1.5rem;
+  }
+
+  .site-footer-bottom {
+    padding: 1.5rem 1.5rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .site-footer-main {
+    padding: 2rem 1rem;
+  }
+
+  .site-footer-logo {
+    width: 80px;
+    height: auto;
+  }
+
+  .site-footer-bottom {
+    padding: 1rem;
+  }
+
+  .site-footer-copyright {
+    font-size: 0.9rem;
+    text-align: center;
+  }
 }
 
 .home-performance {
@@ -682,7 +863,7 @@ h2 {
 .home-performance-benefit-row p {
   margin: 0;
   padding: 1.55rem 0;
-  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-size: clamp(1.7rem, 2.2vw, 2.95rem);
   line-height: 1.2;
   font-weight: 400;
@@ -702,7 +883,7 @@ h2 {
 
 .home-performance-stat-card h3 {
   margin: 0;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   font-size: clamp(2.6rem, 3.2vw, 4rem);
   line-height: 1;
   font-weight: 700;
@@ -714,7 +895,7 @@ h2 {
 .home-performance-stat-card p {
   margin: 1rem auto 0;
   max-width: 14ch;
-  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-size: clamp(0.95rem, 1.1vw, 1.5rem);
   line-height: 1.35;
   color: #204a79;
@@ -722,21 +903,20 @@ h2 {
 
 .home-services {
   color: #ffffff;
+  padding-top: 5rem;
 }
 
 .home-services-content {
-  padding-top: clamp(2.4rem, 4vw, 4.2rem);
-  padding-bottom: clamp(2.8rem, 4.6vw, 5rem);
-  padding-left: var(--home-title-left-inset);
+  padding: 0;
 }
 
 .home-services-title {
-  margin: 0 0 clamp(1.6rem, 2.6vw, 2.6rem);
+  margin-bottom: 1.1rem;
   color: #ffffff;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(2.4rem, 6vw, 6.2rem);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(3rem, 8.66137566vw, 20rem);
   line-height: 1;
-  font-weight: 300;
+  font-weight: 400;
   letter-spacing: 0.01em;
 }
 
@@ -745,28 +925,50 @@ h2 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   border-left: 1px solid rgba(255, 255, 255, 0.16);
   border-top: 1px solid rgba(255, 255, 255, 0.16);
+  margin-bottom: 5rem;
 }
 
 .home-services-card {
-  min-height: clamp(180px, 14vw, 250px);
-  padding: clamp(1rem, 1.6vw, 1.35rem);
+  min-height: 18rem;
+  padding: 2rem;
   border-right: 1px solid rgba(255, 255, 255, 0.16);
   border-bottom: 1px solid rgba(255, 255, 255, 0.16);
   background: rgba(255, 255, 255, 0.01);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: background-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
+  position: relative;
+  transition: background-image 800ms cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.home-services-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    259deg,
+    rgba(255, 255, 255, 0.14) -0.09%,
+    rgba(255, 255, 255, 0) 96.16%
+  );
+  opacity: 0;
+  transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.home-services-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .home-services-card h3 {
   margin: 0;
-  max-width: 20ch;
   color: rgba(255, 255, 255, 0.95);
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(1rem, 1.15vw, 1.35rem);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(1.4375rem, 1.71957672vw, 20rem);
   line-height: 1.2;
-  font-weight: 500;
+  font-weight: 300;
   text-transform: uppercase;
 }
 
@@ -774,18 +976,17 @@ h2 {
   width: clamp(34px, 2.6vw, 48px);
   height: clamp(34px, 2.6vw, 48px);
   opacity: 0.92;
-  transition: transform 220ms ease, opacity 220ms ease;
+  transition:
+    transform 220ms ease,
+    opacity 220ms ease;
 }
 
-.home-services-card:hover {
-  background: linear-gradient(145deg, rgba(123, 154, 255, 0.34) 0%, rgba(54, 91, 198, 0.3) 45%, rgba(37, 61, 137, 0.36) 100%);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
+.home-services-card {
+  cursor: none;
 }
 
-.home-services-card:hover .home-services-icon {
+.home-services-card:hover::before {
   opacity: 1;
-  transform: scale(1.06);
 }
 
 /* Scroll-driven projects section */
@@ -805,8 +1006,6 @@ h2 {
 }
 
 .home-projects-heading-wrap {
-  border-top: 1px solid rgba(255, 255, 255, 0.16);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
   flex: 0 0 auto;
 }
 
@@ -821,7 +1020,7 @@ h2 {
   border: 1px solid rgba(220, 232, 255, 0.65);
   border-radius: 999px;
   color: #d7e7ff;
-  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-size: 1rem;
   font-weight: 500;
   padding: 0.65rem 1.4rem;
@@ -829,7 +1028,9 @@ h2 {
   opacity: 0;
   transform: translateY(-4px);
   pointer-events: none;
-  transition: opacity 280ms ease, transform 280ms ease;
+  transition:
+    opacity 280ms ease,
+    transform 280ms ease;
 }
 
 .home-projects-heading-link.is-visible {
@@ -839,12 +1040,14 @@ h2 {
 }
 
 .home-projects-title {
-  margin: 0;
-  padding: clamp(1.6rem, 2.4vw, 2.6rem) 0 clamp(1rem, 1.6vw, 1.5rem);
-  color: rgba(255, 255, 255, 0.95);
-  font-size: clamp(2.4rem, 7vw, 7rem);
+  margin-top: 2rem;
+  margin-bottom: 1.1rem;
+  color: #ffffff;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(3rem, 8.66137566vw, 20rem);
   line-height: 1;
-  font-weight: 300;
+  font-weight: 400;
+  letter-spacing: 0.01em;
 }
 
 .home-projects-frame {
@@ -897,7 +1100,7 @@ h2 {
   white-space: nowrap;
   writing-mode: vertical-rl;
   text-orientation: mixed;
-  font-family: inherit;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-size: clamp(0.85rem, 1.1vw, 1.15rem);
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -927,11 +1130,12 @@ h2 {
 
 .home-projects-main {
   display: grid;
-  grid-template-columns: 40% 60%;
+  grid-template-columns: minmax(0, 40%) minmax(0, 60%);
   gap: clamp(1rem, 1.6vw, 1.5rem);
   align-items: stretch;
   padding: clamp(1.2rem, 2vw, 1.9rem) clamp(1.1rem, 1.8vw, 1.9rem);
   min-height: 0;
+  min-width: 0;
   height: 100%;
 }
 
@@ -943,6 +1147,8 @@ h2 {
   justify-content: center;
   height: 100%;
   max-width: 470px;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .home-projects-details h3 {
@@ -951,6 +1157,8 @@ h2 {
   font-size: clamp(1.65rem, 2.8vw, 2.45rem);
   line-height: 1.05;
   font-weight: 500;
+  font-family: "Space Grotesk", sans-serif;
+  font-feature-settings: "ss04" on;
 }
 
 .home-projects-meta-grid {
@@ -976,6 +1184,7 @@ h2 {
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.24);
   min-height: 0;
+  min-width: 0;
   height: 100%;
   position: relative;
 }
@@ -995,6 +1204,48 @@ h2 {
   display: block;
 }
 
+/* CTA slide — single bg image + centered underlined text */
+.home-projects-slide--cta .home-projects-cta {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.home-projects-cta-link {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, calc(-50% + 24px));
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  text-decoration: none;
+  color: #ffffff;
+  font-family: "Space Grotesk", sans-serif;
+  font-feature-settings: "ss04" on;
+  font-weight: 300;
+  font-size: clamp(1.8rem, 2.3vw, 35px);
+  line-height: 1.2;
+  white-space: nowrap;
+  transition:
+    opacity 220ms ease,
+    border-color 220ms ease;
+}
+
+.home-projects-cta-link:hover {
+  opacity: 0.9;
+  border-bottom-color: rgba(255, 255, 255, 0.4);
+}
+
+.home-projects-cta-link-text {
+  display: block;
+}
+
+/* Legacy summary — kept for mobile overrides that reference it */
 .home-projects-summary {
   display: flex;
   flex-direction: column;
@@ -1011,7 +1262,8 @@ h2 {
   gap: 0.35rem;
   text-align: center;
   text-transform: uppercase;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
+  font-feature-settings: "ss04" on;
   color: #ffffff;
   font-size: clamp(2.6rem, 6.2vw, 6rem);
   line-height: 0.95;
@@ -1026,7 +1278,7 @@ h2 {
 .home-projects-summary p {
   margin: 0;
   color: rgba(236, 243, 255, 0.92);
-  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-size: clamp(1rem, 1.35vw, 1.3rem);
   background: transparent;
   padding: 0;
@@ -1036,14 +1288,22 @@ h2 {
   margin-top: 0.8rem;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.22);
-  background: linear-gradient(180deg, rgba(57, 83, 166, 0.72) 0%, rgba(35, 58, 132, 0.75) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(57, 83, 166, 0.72) 0%,
+    rgba(35, 58, 132, 0.75) 100%
+  );
   color: #ffffff;
-  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-size: 1.45rem;
   font-weight: 600;
   padding: 0.95rem 2.8rem;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 10px 24px rgba(7, 25, 73, 0.3);
-  transition: transform 220ms ease, filter 220ms ease;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 10px 24px rgba(7, 25, 73, 0.3);
+  transition:
+    transform 220ms ease,
+    filter 220ms ease;
   display: inline-block;
 }
 
@@ -1077,7 +1337,7 @@ h2 {
     justify-self: start;
   }
 
-.mobile-menu-button {
+  .mobile-menu-button {
     display: inline-flex;
     flex-direction: column;
     justify-content: center;
@@ -1089,7 +1349,7 @@ h2 {
     background: transparent;
     justify-self: end;
     cursor: pointer;
-    font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+    font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   }
 
   .mobile-menu-button span {
@@ -1137,17 +1397,16 @@ h2 {
     justify-content: space-between;
   }
 
-.mobile-close-button {
+  .mobile-close-button {
     border: 0;
     background: rgba(17, 77, 136, 0.1);
     color: #114d88;
-    font-family: inherit;
+    font-family: "General Sans Variable", "Space Grotesk", sans-serif;
     font-size: 0.92rem;
     font-weight: 600;
     padding: 0.5rem 0.9rem;
     border-radius: 999px;
     cursor: pointer;
-    font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
   }
 
   .mobile-close-button:hover {
@@ -1171,7 +1430,10 @@ h2 {
     line-height: 1.2;
     color: #124a85;
     background: rgba(17, 77, 136, 0.08);
-    transition: background-color 180ms ease, transform 180ms ease, color 180ms ease;
+    transition:
+      background-color 180ms ease,
+      transform 180ms ease,
+      color 180ms ease;
   }
 
   .contact-link--mobile {
@@ -1237,15 +1499,9 @@ h2 {
     align-items: flex-start;
   }
 
-  .home-hero-title {
-    max-width: 20ch;
-    font-size: clamp(2rem, 7vw, 2.9rem);
-    font-family: 'Space Grotesk', sans-serif;
-  }
-
   .home-hero-description {
     max-width: 38ch;
-    font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+    font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   }
 
   .trusted-section--hero {
@@ -1258,14 +1514,14 @@ h2 {
   }
 
   .trusted-section h2 {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-size: clamp(1.6rem, 5.5vw, 2.4rem);
     max-width: 20ch;
     margin-inline: 0;
   }
 
   .home-performance-benefit-row p {
-    font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+    font-family: "General Sans Variable", "Space Grotesk", sans-serif;
     font-size: clamp(1.4rem, 4.8vw, 2.2rem);
     padding: 1.15rem 0;
   }
@@ -1284,13 +1540,13 @@ h2 {
   }
 
   .home-performance-stat-card h3 {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-size: clamp(1.65rem, 4.5vw, 2.25rem);
     white-space: normal;
   }
 
   .home-performance-stat-card p {
-    font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+    font-family: "General Sans Variable", "Space Grotesk", sans-serif;
     max-width: 20ch;
     font-size: 0.875rem;
     margin: 0.4rem 0 0;
@@ -1311,8 +1567,6 @@ h2 {
   }
 
   .home-services-card h3 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(0.95rem, 2.8vw, 1.25rem);
   }
 
   .home-projects-scroll-container {
@@ -1408,7 +1662,18 @@ h2 {
     display: none;
   }
 
-  /* CTA slide as card */
+  /* CTA slide — mobile: ensure min height for horizontal scroll */
+  .home-projects-slide--cta .home-projects-cta {
+    min-height: 320px;
+    border-left: none;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+  }
+
+  .home-projects-cta-link {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+  }
+
+  /* Legacy summary (other slides) */
   .home-projects-summary {
     padding: 3rem 1.5rem;
     height: auto;
@@ -1443,7 +1708,9 @@ h2 {
     padding: 0;
     background: rgba(255, 255, 255, 0.3);
     cursor: pointer;
-    transition: width 250ms ease, background-color 250ms ease;
+    transition:
+      width 250ms ease,
+      background-color 250ms ease;
   }
 
   .home-projects-dot.is-active {
@@ -1453,9 +1720,6 @@ h2 {
 }
 
 @media (min-width: 961px) {
-  .home-hero-title {
-    font-size: 43.42px;
-  }
 }
 
 @media (max-width: 560px) {
@@ -1463,22 +1727,15 @@ h2 {
     padding: 1rem 0;
   }
 
-
-  .home-hero-title {
-    line-height: 1.1;
-    max-width: none;
-    font-family: 'Space Grotesk', sans-serif;
-  }
-
   .home-hero-description {
     max-width: none;
     font-size: 0.95rem;
-    font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+    font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   }
 
   .home-hero-cta {
     font-size: 0.95rem;
-    font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+    font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   }
 
   .home-hero-temperature-widget {
@@ -1516,7 +1773,7 @@ h2 {
   }
 
   .home-performance-benefit-row p {
-    font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+    font-family: "General Sans Variable", "Space Grotesk", sans-serif;
     font-size: clamp(1.25rem, 6.4vw, 1.65rem);
   }
 
@@ -1529,19 +1786,18 @@ h2 {
   }
 
   .home-performance-stat-card h3 {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-size: clamp(1.5rem, 5vw, 2rem);
   }
 
   .home-performance-stat-card p {
-    font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+    font-family: "General Sans Variable", "Space Grotesk", sans-serif;
     font-size: 0.8rem;
     margin-top: 0.35rem;
   }
 
   .home-services-title {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(2rem, 12vw, 3rem);
+    font-family: "Space Grotesk", sans-serif;
   }
 
   .home-services-grid {
@@ -1576,11 +1832,16 @@ h2 {
     font-size: 0.95rem;
     padding: 0.7rem 1.5rem;
   }
+
+  .home-projects-cta-link {
+    font-size: clamp(1.4rem, 7vw, 1.8rem);
+  }
 }
 
 /* Consult + FAQ */
 .home-consult {
-  padding: clamp(2.2rem, 4vw, 4.8rem) 0;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
 }
 
 .home-consult-grid {
@@ -1588,6 +1849,8 @@ h2 {
   grid-template-columns: minmax(280px, 45%) minmax(320px, 55%);
   gap: clamp(1.5rem, 3vw, 3.2rem);
   align-items: center;
+  padding-right: clamp(1rem, 6vw, 5rem);
+  padding-left: clamp(1rem, 6vw, 5rem);
 }
 
 .spline-wrapper {
@@ -1596,8 +1859,8 @@ h2 {
   position: relative;
   overflow: hidden;
   background-color: transparent;
-  -webkit-mask-image: url('../assets/images/icon-animation-mask.png');
-  mask-image: url('../assets/images/icon-animation-mask.png');
+  -webkit-mask-image: url("../assets/images/icon-animation-mask.png");
+  mask-image: url("../assets/images/icon-animation-mask.png");
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   -webkit-mask-size: contain;
@@ -1636,12 +1899,12 @@ h2 {
 
 .home-consult-content h2 {
   margin: 0;
-  color: #f2f6ff;
-  text-transform: uppercase;
-  font-size: clamp(2rem, 5vw, 4.6rem);
-  line-height: 1.05;
+  color: #ffffff;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(3rem, 4.4973545vw, 20rem);
+  line-height: 1;
   font-weight: 400;
-  padding-left: var(--home-title-left-inset);
+  letter-spacing: 0.01em;
 }
 
 .home-consult-download-btn {
@@ -1652,12 +1915,18 @@ h2 {
   margin-left: var(--home-title-left-inset);
   border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 999px;
-  background: linear-gradient(180deg, rgba(56, 79, 157, 0.7) 0%, rgba(40, 63, 139, 0.72) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(56, 79, 157, 0.7) 0%,
+    rgba(40, 63, 139, 0.72) 100%
+  );
   color: #eef4ff;
   font-size: clamp(0.95rem, 1vw, 1.06rem);
   font-weight: 500;
   padding: 0.7rem 1.4rem;
-  transition: filter 220ms ease, transform 220ms ease;
+  transition:
+    filter 220ms ease,
+    transform 220ms ease;
 }
 
 .home-consult-download-btn:hover {
@@ -1666,10 +1935,13 @@ h2 {
 }
 
 .home-consult-form {
-  margin-top: 1.35rem;
-  margin-left: var(--home-title-left-inset);
-  padding: clamp(1.25rem, 2.2vw, 1.9rem) clamp(1.25rem, 2.2vw, 1.7rem);
-  background: linear-gradient(180deg, rgba(44, 69, 149, 0.64) 0%, rgba(32, 55, 129, 0.58) 100%);
+  margin-top: 2rem;
+  padding: 2rem;
+  background: linear-gradient(
+    180deg,
+    rgba(44, 69, 149, 0.64) 0%,
+    rgba(32, 55, 129, 0.58) 100%
+  );
 }
 
 .home-consult-form label {
@@ -1687,7 +1959,7 @@ h2 {
   border-bottom: 1px solid rgba(198, 213, 255, 0.3);
   background: transparent;
   color: #f5f8ff;
-  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-weight: 500;
   font-style: normal;
   font-size: 16px;
@@ -1711,6 +1983,7 @@ h2 {
   top: 50%;
   transform: translateY(-50%);
   color: rgba(217, 227, 255, 0.65);
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-size: 0.84rem;
   font-style: italic;
 }
@@ -1725,7 +1998,7 @@ h2 {
   border-bottom: 1px solid rgba(198, 213, 255, 0.3);
   background: transparent;
   color: rgba(217, 227, 255, 0.68);
-  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-weight: 600;
   font-size: 16px;
   line-height: 150%;
@@ -1767,7 +2040,7 @@ h2 {
 
 .home-consult-form-status {
   margin: 0.8rem 0 0;
-  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-size: 0.88rem;
   font-weight: 500;
 }
@@ -1791,7 +2064,7 @@ h2 {
 .home-consult-form-bottom p {
   margin: 0;
   color: rgba(209, 221, 255, 0.66);
-  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-weight: 300;
   font-style: normal;
   font-size: 16px;
@@ -1805,12 +2078,14 @@ h2 {
   border-radius: 999px;
   background: transparent;
   color: #f0f5ff;
-  font-family: inherit;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-size: 1rem;
   font-weight: 500;
   padding: 0.72rem 2.2rem;
   cursor: pointer;
-  transition: background-color 220ms ease, transform 220ms ease;
+  transition:
+    background-color 220ms ease,
+    transform 220ms ease;
 }
 
 .home-consult-form-bottom button:hover {
@@ -1820,27 +2095,25 @@ h2 {
 
 .home-faq {
   padding: clamp(2.5rem, 4.3vw, 5rem) 0 clamp(3rem, 5vw, 6rem);
+  padding-bottom: 10rem;
 }
 
 .home-faq-grid {
   display: grid;
   grid-template-columns: minmax(220px, 46%) minmax(280px, 54%);
   gap: clamp(1.4rem, 2.6vw, 3rem);
+  padding-right: clamp(1rem, 6vw, 5rem);
+  padding-left: clamp(1rem, 6vw, 5rem);
 }
 
 .home-faq-title-wrap h2 {
   margin: 0;
-  color: #f4f7ff;
-  font-family: 'Space Grotesk', sans-serif;
+  color: #ffffff;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(3rem, 4.4973545vw, 20rem);
+  line-height: 1;
   font-weight: 400;
-  font-style: normal;
-  font-size: 68px;
-  line-height: 106%;
-  letter-spacing: -0.011em;
-  leading-trim: cap-height;
-  vertical-align: middle;
-  text-transform: uppercase;
-  padding-left: var(--home-title-left-inset);
+  letter-spacing: 0.01em;
 }
 
 .home-faq-list {
@@ -1856,7 +2129,7 @@ h2 {
   border: 0;
   background: transparent;
   color: #f0f5ff;
-  font-family: inherit;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   text-align: left;
   display: flex;
   align-items: center;
@@ -1867,17 +2140,22 @@ h2 {
 }
 
 .home-faq-trigger span:last-child {
-  color: rgba(210, 224, 255, 0.9);
-  font-size: 1.5rem;
-  font-weight: 300;
-  line-height: 1;
+  color: #fff;
+  font-family: "General Sans Variable", sans-serif;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 1.875rem */
+  letter-spacing: -0.01375rem;
 }
 
 .home-faq-content {
   display: grid;
   grid-template-rows: 0fr;
   opacity: 0;
-  transition: grid-template-rows 320ms ease, opacity 260ms ease;
+  transition:
+    grid-template-rows 320ms ease,
+    opacity 260ms ease;
 }
 
 .home-faq-content-inner {
@@ -1904,7 +2182,7 @@ h2 {
   }
 
   .about-hero-lead {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-weight: 700;
     font-style: normal;
     font-size: 28px;
@@ -1914,7 +2192,7 @@ h2 {
   }
 
   .about-hero-title {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-weight: 700;
     font-style: normal;
     font-size: 161.66px;
@@ -1925,24 +2203,13 @@ h2 {
     leading-trim: cap-height;
   }
 
-  .home-hero-title {
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 300;
-    font-style: normal;
-    font-size: 43.42px;
-    line-height: 120%;
-    letter-spacing: -0.011em;
-    text-transform: uppercase;
-    color: #104b86;
-  }
-
   .home-hero-title strong {
     font-weight: 600;
     font-style: normal;
   }
 
   .home-hero-description {
-    font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+    font-family: "General Sans Variable", "Space Grotesk", sans-serif;
     font-weight: 338;
     font-style: normal;
     font-size: 18px;
@@ -1960,7 +2227,7 @@ h2 {
     border-radius: 115px;
     opacity: 1;
     transform: rotate(0deg);
-    font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+    font-family: "General Sans Variable", "Space Grotesk", sans-serif;
     font-weight: 518;
     font-style: normal;
     font-size: 18px;
@@ -1969,9 +2236,21 @@ h2 {
     color: #104b86;
     white-space: nowrap;
     background:
-      linear-gradient(93.49deg, rgba(196, 209, 255, 0.3243) 21.82%, rgba(196, 209, 255, 0.47) 97.12%),
-      radial-gradient(29.63% 42.11% at 62.22% 100%, rgba(255, 255, 255, 0.49) 0%, rgba(255, 255, 255, 0) 100%),
-      radial-gradient(32.96% 72% at 14.81% 58.93%, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%);
+      linear-gradient(
+        93.49deg,
+        rgba(196, 209, 255, 0.3243) 21.82%,
+        rgba(196, 209, 255, 0.47) 97.12%
+      ),
+      radial-gradient(
+        29.63% 42.11% at 62.22% 100%,
+        rgba(255, 255, 255, 0.49) 0%,
+        rgba(255, 255, 255, 0) 100%
+      ),
+      radial-gradient(
+        32.96% 72% at 14.81% 58.93%,
+        rgba(255, 255, 255, 0.45) 0%,
+        rgba(255, 255, 255, 0) 100%
+      );
   }
 
   .home-performance-stats {
@@ -1987,7 +2266,7 @@ h2 {
   }
 
   .home-performance-stat-card h3 {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-weight: 700;
     font-style: normal;
     font-size: 43.42px;
@@ -2001,10 +2280,10 @@ h2 {
   .home-performance-stat-card p {
     margin-top: 0.5rem;
     max-width: 18ch;
-    font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+    font-family: "General Sans Variable", "Space Grotesk", sans-serif;
     font-weight: 338;
     font-style: normal;
-    font-size: 18px;
+    font-size: 0.875rem;
     line-height: 150%;
     letter-spacing: -0.011em;
     text-align: center;
@@ -2012,7 +2291,7 @@ h2 {
   }
 
   .home-performance-benefit-row p {
-    font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+    font-family: "General Sans Variable", "Space Grotesk", sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size: 30px;
@@ -2022,7 +2301,7 @@ h2 {
   }
 
   .trusted-section--hero h2 {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-style: normal;
     font-size: 43.42px;
     line-height: 120%;
@@ -2038,21 +2317,8 @@ h2 {
     transform: rotate(0deg);
   }
 
-  .home-services-card h3 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 300;
-    font-style: normal;
-    font-size: 26px;
-    line-height: 120%;
-    letter-spacing: 0;
-    text-transform: uppercase;
-  }
-
   .home-services-title {
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 400;
     font-style: normal;
-    font-size: 130.96px;
     line-height: 120%;
     letter-spacing: -0.011em;
     leading-trim: cap-height;
@@ -2061,7 +2327,7 @@ h2 {
   }
 
   .home-projects-meta-grid p {
-    font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+    font-family: "General Sans Variable", "Space Grotesk", sans-serif;
     font-weight: 300;
     font-style: normal;
     font-size: 15px;
@@ -2071,7 +2337,7 @@ h2 {
   }
 
   .home-projects-meta-grid h4 {
-    font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+    font-family: "General Sans Variable", "Space Grotesk", sans-serif;
     font-weight: 500;
     font-style: normal;
     font-size: 15px;
@@ -2080,7 +2346,8 @@ h2 {
   }
 
   .home-projects-details h3 {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: "Space Grotesk", sans-serif;
+    font-feature-settings: "ss04" on;
     font-weight: 500;
     font-style: normal;
     font-size: 40px;
@@ -2089,7 +2356,7 @@ h2 {
   }
 
   .home-projects-sidebar-label {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-weight: 500;
     font-style: normal;
     font-size: 18px;
@@ -2097,42 +2364,22 @@ h2 {
     letter-spacing: 0.06em;
   }
 
-  .home-projects-title {
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 130.96px;
-    line-height: 120%;
-    letter-spacing: -0.011em;
-    leading-trim: cap-height;
-    vertical-align: middle;
-    text-transform: uppercase;
-  }
-
-  .home-consult-content h2 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 68px;
-    line-height: 120%;
-    letter-spacing: -0.011em;
-    leading-trim: cap-height;
-    vertical-align: middle;
-    text-transform: uppercase;
-  }
-
   .home-consult-download-btn {
-    font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+    font-family: "General Sans Variable", "Space Grotesk", sans-serif;
     font-weight: 500;
     font-style: normal;
     font-size: 18px;
     line-height: 150%;
     letter-spacing: 0;
-    background: linear-gradient(93.49deg, rgba(196, 209, 255, 0.0345) 21.82%, rgba(196, 209, 255, 0.05) 97.12%);
+    background: linear-gradient(
+      93.49deg,
+      rgba(196, 209, 255, 0.0345) 21.82%,
+      rgba(196, 209, 255, 0.05) 97.12%
+    );
   }
 
   .home-faq-trigger {
-    font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+    font-family: "General Sans Variable", sans-serif;
     font-weight: 500;
     font-style: normal;
     font-size: 20px;
@@ -2141,7 +2388,7 @@ h2 {
   }
 
   .home-faq-content p {
-    font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+    font-family: "General Sans Variable", sans-serif;
     font-weight: 300;
     font-style: normal;
     font-size: 15px;
@@ -2168,11 +2415,6 @@ h2 {
     order: 1;
   }
 
-  .home-consult-content h2 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(2rem, 9vw, 3.2rem);
-  }
-
   .home-consult-form-bottom {
     flex-direction: column;
     align-items: flex-start;
@@ -2182,8 +2424,21 @@ h2 {
     grid-template-columns: 1fr;
   }
 
-  .home-faq-title-wrap h2 {
-    font-size: clamp(2rem, 6.5vw, 3.5rem);
+  .home-faq-item,
+  .home-faq-trigger,
+  .home-faq-trigger span:last-child,
+  .home-faq-content p {
+    font-family: "General Sans Variable", "Space Grotesk", sans-serif;
+  }
+
+  .home-consult-form-bottom button,
+  .home-consult-form-bottom p {
+    font-family: "General Sans Variable", "Space Grotesk", sans-serif;
+  }
+
+  .contact-touch-form-bottom button,
+  .contact-touch-form-bottom p {
+    font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   }
 }
 
@@ -2201,15 +2456,14 @@ h2 {
     font-size: 14px;
   }
 
-  .home-faq-title-wrap h2 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(1.8rem, 10vw, 2.7rem);
-  }
-
   .home-faq-trigger {
-    font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+    font-family: "General Sans Variable", "Space Grotesk", sans-serif;
     font-size: 0.95rem;
     padding: 1rem 0;
+  }
+
+  .home-faq-content p {
+    font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   }
 
   .spline-wrapper {
@@ -2261,7 +2515,8 @@ h2 {
 
 .projects-hero-title {
   margin-bottom: 1.5rem;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
+  font-feature-settings: "ss04" on;
   font-weight: 700;
   font-style: normal;
   font-size: clamp(3rem, 9vw, 5.6rem);
@@ -2298,7 +2553,11 @@ h2 {
 }
 
 .projects-list-item.is-active {
-  background: linear-gradient(90deg, rgba(16, 75, 134, 0.03) 0%, rgba(16, 75, 134, 0) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(16, 75, 134, 0.03) 0%,
+    rgba(16, 75, 134, 0) 100%
+  );
 }
 
 .projects-list-arrow {
@@ -2322,7 +2581,8 @@ h2 {
 }
 
 .projects-list-title {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
+  font-feature-settings: "ss04" on;
   font-weight: 700;
   font-size: clamp(2rem, 4vw, 3rem);
   text-transform: uppercase;
@@ -2331,7 +2591,7 @@ h2 {
 }
 
 .projects-list-subtitle {
-  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-size: clamp(0.78rem, 0.95vw, 0.9rem);
   color: rgba(16, 75, 134, 0.6);
 }
@@ -2379,7 +2639,8 @@ h2 {
 
 .projects-ongoing-title {
   margin: 0 0 clamp(1.5rem, 3vw, 2.5rem);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
+  font-feature-settings: "ss04" on;
   font-weight: 700;
   font-size: clamp(3rem, 9vw, 5.6rem);
   line-height: 0.95;
@@ -2409,7 +2670,11 @@ h2 {
 }
 
 .projects-ongoing-item.is-active {
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.04) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
 }
 
 .projects-ongoing-arrow {
@@ -2431,7 +2696,8 @@ h2 {
 }
 
 .projects-ongoing-title-item {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
+  font-feature-settings: "ss04" on;
   font-weight: 700;
   font-size: clamp(2rem, 4vw, 3rem);
   text-transform: uppercase;
@@ -2440,7 +2706,7 @@ h2 {
 }
 
 .projects-ongoing-subtitle {
-  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-size: clamp(0.78rem, 0.95vw, 0.9rem);
   color: rgba(255, 255, 255, 0.65);
   display: flex;
@@ -2507,7 +2773,8 @@ h2 {
 
 .project-ongoing-row-label h3 {
   margin: 0;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
+  font-feature-settings: "ss04" on;
   font-weight: 700;
   font-size: clamp(0.75rem, 0.9vw, 0.85rem);
   letter-spacing: 0.06em;
@@ -2536,7 +2803,7 @@ h2 {
 }
 
 .project-ongoing-scope-dl dt {
-  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-size: clamp(0.78rem, 0.85vw, 0.85rem);
   font-weight: 700;
   letter-spacing: 0.01em;
@@ -2546,14 +2813,14 @@ h2 {
 
 .project-ongoing-scope-dl dd {
   margin: 0;
-  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-size: clamp(0.78rem, 0.85vw, 0.85rem);
   color: rgba(255, 255, 255, 0.7);
 }
 
 .project-ongoing-cta-btn {
   display: inline-block;
-  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-size: 0.8rem;
   font-weight: 600;
   color: #ffffff;
@@ -2563,7 +2830,9 @@ h2 {
   border-radius: 0;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  transition: background-color 200ms ease, border-color 200ms ease;
+  transition:
+    background-color 200ms ease,
+    border-color 200ms ease;
   align-self: flex-start;
 }
 
@@ -2582,7 +2851,7 @@ h2 {
 }
 
 .project-ongoing-stat-value {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   font-size: clamp(2.2rem, 3.5vw, 3.2rem);
   font-weight: 700;
   color: #ffffff;
@@ -2596,7 +2865,7 @@ h2 {
 }
 
 .project-ongoing-stat-label {
-  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-size: clamp(0.65rem, 0.75vw, 0.78rem);
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -2628,7 +2897,7 @@ h2 {
 
 .projects-cta-text {
   margin: 0 0 1.25rem;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   font-size: clamp(1.1rem, 1.5vw, 1.35rem);
   font-weight: 500;
   color: #ffffff;
@@ -2638,7 +2907,7 @@ h2 {
 
 .projects-cta-btn {
   display: inline-block;
-  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-size: 0.9rem;
   font-weight: 600;
   color: #ffffff;
@@ -2647,7 +2916,9 @@ h2 {
   border-radius: 999px;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  transition: background-color 200ms ease, transform 200ms ease;
+  transition:
+    background-color 200ms ease,
+    transform 200ms ease;
 }
 
 .projects-cta-btn:hover {
@@ -2681,7 +2952,8 @@ h2 {
 
 .project-header-title {
   margin: 0;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
+  font-feature-settings: "ss04" on;
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
   line-height: 1.05;
@@ -2692,7 +2964,7 @@ h2 {
 
 .project-header-subtitle {
   margin: 0.35rem 0 0;
-  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-size: clamp(0.85rem, 1.1vw, 1rem);
   color: rgba(16, 75, 134, 0.55);
   font-weight: 400;
@@ -2735,7 +3007,8 @@ h2 {
 
 .project-row-label h3 {
   margin: 0;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
+  font-feature-settings: "ss04" on;
   font-size: clamp(0.82rem, 0.95vw, 0.95rem);
   font-weight: 700;
   color: var(--text-primary);
@@ -2761,7 +3034,7 @@ h2 {
 }
 
 .project-overview-dl dt {
-  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-size: 0.88rem;
   font-weight: 600;
   color: #104b86;
@@ -2770,7 +3043,7 @@ h2 {
 
 .project-overview-dl dd {
   margin: 0;
-  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-size: 0.88rem;
   font-weight: 400;
   color: #475569;
@@ -2779,7 +3052,7 @@ h2 {
 /* Row content text */
 .project-row-content p {
   margin: 0;
-  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-size: clamp(0.85rem, 0.95vw, 0.95rem);
   line-height: 1.7;
   color: #334155;
@@ -2797,7 +3070,7 @@ h2 {
 }
 
 .project-results-list li {
-  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-size: clamp(0.85rem, 0.95vw, 0.95rem);
   line-height: 1.6;
   color: #334155;
@@ -2806,7 +3079,7 @@ h2 {
 }
 
 .project-results-list li::before {
-  content: '◆';
+  content: "◆";
   position: absolute;
   left: 0;
   color: var(--text-primary);
@@ -2824,7 +3097,7 @@ h2 {
 }
 
 .project-stat-value {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   font-size: clamp(2.2rem, 3.5vw, 3.2rem);
   font-weight: 300;
   color: #104b86;
@@ -2840,7 +3113,7 @@ h2 {
 }
 
 .project-stat-label {
-  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-size: clamp(0.65rem, 0.75vw, 0.78rem);
   font-weight: 600;
   text-transform: uppercase;
@@ -2856,7 +3129,7 @@ h2 {
 
 .project-consult-btn {
   display: inline-block;
-  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-size: 0.82rem;
   font-weight: 600;
   color: var(--text-primary);
@@ -2866,7 +3139,9 @@ h2 {
   text-transform: uppercase;
   letter-spacing: 0.04em;
   white-space: nowrap;
-  transition: background-color 200ms ease, color 200ms ease;
+  transition:
+    background-color 200ms ease,
+    color 200ms ease;
 }
 
 .project-consult-btn:hover {
@@ -2919,17 +3194,19 @@ h2 {
 
 @media (max-width: 560px) {
   .project-header-title {
+    font-family: "Space Grotesk", sans-serif;
     font-size: 1.6rem;
-  }
-
-  .project-overview-dl div {
-    flex-direction: column;
-    gap: 0.15rem;
   }
 
   .project-consult-btn {
     width: 100%;
     text-align: center;
+    font-family: "General Sans Variable", "Space Grotesk", sans-serif;
+  }
+
+  .project-overview-dl div {
+    flex-direction: column;
+    gap: 0.15rem;
   }
 }
 
@@ -2958,7 +3235,8 @@ h2 {
 .services-hero-title,
 .projects-hero-title {
   margin: 0;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
+  font-feature-settings: "ss04" on;
   font-weight: 700;
   font-size: clamp(3rem, 9vw, 7.4rem);
   line-height: 0.95;
@@ -3005,19 +3283,24 @@ h2 {
   justify-content: center;
   border-radius: 50%;
   border: 1.5px solid rgba(16, 75, 134, 0.15);
-  background: linear-gradient(145deg, rgba(16, 75, 134, 0.06) 0%, rgba(16, 75, 134, 0.02) 100%);
+  background: linear-gradient(
+    145deg,
+    rgba(16, 75, 134, 0.06) 0%,
+    rgba(16, 75, 134, 0.02) 100%
+  );
 }
 
 .services-section-icon {
   width: 60%;
   height: 60%;
   object-fit: contain;
-  filter: brightness(0) saturate(100%) invert(22%) sepia(60%) saturate(1200%) hue-rotate(190deg) brightness(85%) contrast(95%);
+  filter: brightness(0) saturate(100%) invert(22%) sepia(60%) saturate(1200%)
+    hue-rotate(190deg) brightness(85%) contrast(95%);
 }
 
 .services-section-title {
   margin: 0;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   font-weight: 700;
   font-size: clamp(1.1rem, 1.8vw, 1.65rem);
   line-height: 1.15;
@@ -3028,7 +3311,7 @@ h2 {
 
 .services-section-subtitle {
   margin: 0.3rem 0 0;
-  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-weight: 400;
   font-style: italic;
   font-size: clamp(0.9rem, 1.1vw, 1.1rem);
@@ -3043,7 +3326,7 @@ h2 {
 .services-section-desc {
   margin: 0 0 1rem;
   max-width: 100ch;
-  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-weight: 400;
   font-size: clamp(0.85rem, 0.95vw, 0.95rem);
   line-height: 1.7;
@@ -3066,7 +3349,7 @@ h2 {
 
 .services-column-title {
   margin: 0 0 0.85rem;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   font-weight: 700;
   font-size: clamp(0.7rem, 0.8vw, 0.82rem);
   text-transform: uppercase;
@@ -3084,7 +3367,7 @@ h2 {
 }
 
 .services-column-list li {
-  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-size: clamp(0.78rem, 0.88vw, 0.88rem);
   line-height: 1.5;
   color: #475569;
@@ -3093,7 +3376,7 @@ h2 {
 }
 
 .services-column-list li::before {
-  content: '\2022';
+  content: "\2022";
   position: absolute;
   left: 0;
   color: #104b86;
@@ -3151,7 +3434,7 @@ h2 {
 }
 
 .services-sub-trigger-title {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   font-weight: 600;
   font-size: clamp(0.88rem, 1.1vw, 1.1rem);
   text-transform: uppercase;
@@ -3173,7 +3456,7 @@ h2 {
 .services-sub-desc {
   margin: 0 0 1rem;
   max-width: 100ch;
-  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-weight: 400;
   font-size: clamp(0.85rem, 0.95vw, 0.95rem);
   line-height: 1.7;
@@ -3190,7 +3473,8 @@ h2 {
 
   .services-hero-title,
   .projects-hero-title {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: "Space Grotesk", sans-serif;
+    font-feature-settings: "ss04" on;
     font-size: clamp(2.5rem, 13vw, 4.3rem);
   }
 
@@ -3207,6 +3491,16 @@ h2 {
     gap: 1.5rem;
   }
 
+  .services-section-title,
+  .services-sub-trigger-title {
+    font-family: "Space Grotesk", sans-serif;
+  }
+
+  .services-section-desc,
+  .services-column-list li {
+    font-family: "General Sans Variable", "Space Grotesk", sans-serif;
+  }
+
   .services-section-header {
     align-items: flex-start;
   }
@@ -3220,7 +3514,8 @@ h2 {
 @media (min-width: 961px) {
   .services-hero-title,
   .projects-hero-title {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: "Space Grotesk", sans-serif;
+    font-feature-settings: "ss04" on;
     font-weight: 700;
     font-size: 161.66px;
     line-height: 120%;
@@ -3268,7 +3563,7 @@ h2 {
 
 .contact-hero-title {
   margin: 0;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   font-weight: 700;
   font-size: clamp(3rem, 9vw, 7.4rem);
   line-height: 0.95;
@@ -3290,7 +3585,7 @@ h2 {
 
 .contact-services-subtitle {
   margin: 0 0 0.5rem;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   font-weight: 700;
   font-size: clamp(1.1rem, 1.6vw, 1.45rem);
   color: #104b86;
@@ -3300,7 +3595,7 @@ h2 {
 
 .contact-services-desc {
   margin: 0 0 clamp(1.5rem, 3vw, 2.5rem);
-  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-weight: 400;
   font-size: clamp(0.82rem, 0.92vw, 0.92rem);
   line-height: 1.6;
@@ -3328,7 +3623,9 @@ h2 {
     rgba(235, 242, 255, 0.25) 100%
   );
   border: 1px solid rgba(16, 75, 134, 0.06);
-  transition: transform 260ms ease, box-shadow 260ms ease;
+  transition:
+    transform 260ms ease,
+    box-shadow 260ms ease;
 }
 
 .contact-service-card:hover {
@@ -3338,7 +3635,7 @@ h2 {
 
 .contact-service-card-title {
   margin: 0;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   font-weight: 600;
   font-size: clamp(0.72rem, 0.88vw, 0.88rem);
   line-height: 1.3;
@@ -3357,7 +3654,8 @@ h2 {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  filter: brightness(0) saturate(100%) invert(22%) sepia(60%) saturate(1200%) hue-rotate(190deg) brightness(85%) contrast(95%);
+  filter: brightness(0) saturate(100%) invert(22%) sepia(60%) saturate(1200%)
+    hue-rotate(190deg) brightness(85%) contrast(95%);
 }
 
 /* ---- Get In Touch ---- */
@@ -3377,7 +3675,7 @@ h2 {
 
 .contact-touch-title {
   margin: 0;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   font-weight: 400;
   font-size: clamp(2.4rem, 5vw, 4.6rem);
   line-height: 1.05;
@@ -3387,7 +3685,7 @@ h2 {
 
 .contact-touch-desc {
   margin: 1.2rem 0 0;
-  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-weight: 400;
   font-size: clamp(0.88rem, 1vw, 1rem);
   line-height: 1.65;
@@ -3398,7 +3696,11 @@ h2 {
 /* ---- Contact form ---- */
 .contact-touch-form-wrap {
   padding: clamp(1.25rem, 2.2vw, 1.9rem) clamp(1.25rem, 2.2vw, 1.7rem);
-  background: linear-gradient(180deg, rgba(44, 69, 149, 0.64) 0%, rgba(32, 55, 129, 0.58) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(44, 69, 149, 0.64) 0%,
+    rgba(32, 55, 129, 0.58) 100%
+  );
   border-radius: 8px;
 }
 
@@ -3417,7 +3719,7 @@ h2 {
   border-bottom: 1px solid rgba(198, 213, 255, 0.3);
   background: transparent;
   color: #f5f8ff;
-  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 150%;
@@ -3440,6 +3742,7 @@ h2 {
   top: 50%;
   transform: translateY(-50%);
   color: rgba(217, 227, 255, 0.65);
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-size: 0.84rem;
   font-style: italic;
 }
@@ -3455,7 +3758,7 @@ h2 {
   border-bottom: 1px solid rgba(198, 213, 255, 0.3);
   background: transparent;
   color: rgba(217, 227, 255, 0.68);
-  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-weight: 600;
   font-size: 16px;
   line-height: 150%;
@@ -3492,7 +3795,7 @@ h2 {
 .contact-touch-form-bottom p {
   margin: 0;
   color: rgba(209, 221, 255, 0.66);
-  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-weight: 300;
   font-size: 16px;
   line-height: 150%;
@@ -3515,13 +3818,15 @@ h2 {
   border-radius: 999px;
   background: transparent;
   color: #f0f5ff;
-  font-family: inherit;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-size: 1rem;
   font-weight: 500;
   padding: 0.72rem 2.2rem;
   cursor: pointer;
   white-space: nowrap;
-  transition: background-color 220ms ease, transform 220ms ease;
+  transition:
+    background-color 220ms ease,
+    transform 220ms ease;
 }
 
 .contact-touch-form-bottom button:hover {
@@ -3536,7 +3841,7 @@ h2 {
 
 .contact-touch-form-status {
   margin: 0.8rem 0 0;
-  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-size: 0.88rem;
   font-weight: 500;
 }
@@ -3577,7 +3882,7 @@ h2 {
 }
 
 .contact-footer-brand-name {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   font-weight: 700;
   font-size: clamp(1rem, 1.4vw, 1.3rem);
   color: #f2f6ff;
@@ -3588,7 +3893,7 @@ h2 {
 .contact-footer-links h4,
 .contact-footer-contact h4 {
   margin: 0 0 1rem;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   font-weight: 600;
   font-size: clamp(0.72rem, 0.82vw, 0.82rem);
   text-transform: uppercase;
@@ -3608,7 +3913,7 @@ h2 {
 
 .contact-footer-links li a,
 .contact-footer-contact li a {
-  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-size: clamp(0.78rem, 0.88vw, 0.88rem);
   color: rgba(220, 230, 255, 0.72);
   transition: color 180ms ease;
@@ -3620,7 +3925,7 @@ h2 {
 }
 
 .contact-footer-contact li {
-  font-family: 'General Sans Variable', 'Space Grotesk', sans-serif;
+  font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   font-size: clamp(0.78rem, 0.88vw, 0.88rem);
   color: rgba(220, 230, 255, 0.72);
   line-height: 1.55;
@@ -3634,7 +3939,7 @@ h2 {
   }
 
   .contact-hero-title {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-size: clamp(2.5rem, 13vw, 4.3rem);
   }
 
@@ -3644,7 +3949,7 @@ h2 {
   }
 
   .contact-touch-title {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-size: clamp(2rem, 9vw, 3.2rem);
   }
 
@@ -3667,7 +3972,7 @@ h2 {
   }
 
   .contact-service-card-title {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-size: 0.68rem;
   }
 
@@ -3680,17 +3985,19 @@ h2 {
   .contact-touch-form-bottom button {
     width: 100%;
     text-align: center;
+    font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   }
 
   .contact-touch-form-bottom p {
     font-size: 14px;
+    font-family: "General Sans Variable", "Space Grotesk", sans-serif;
   }
 }
 
 /* ---- Desktop refinements ---- */
 @media (min-width: 961px) {
   .contact-hero-title {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-weight: 700;
     font-size: 161.66px;
     line-height: 120%;
@@ -3708,12 +4015,12 @@ h2 {
   }
 
   .contact-service-card-title {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-size: 13px;
   }
 
   .contact-touch-title {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-weight: 400;
     font-size: 68px;
     line-height: 106%;

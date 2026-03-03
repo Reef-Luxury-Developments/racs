@@ -8,7 +8,13 @@
 /* Reusable radial background area */
 .bg-racs-home-radial {
   background-color: var(--racs-grad-navy);
-  background: linear-gradient(180deg, #FFF 7.88%, #345BC7 30.9%, #141B41 61.03%, #2A49A1 100%);
+  background: linear-gradient(
+    180deg,
+    #fff 3.88%,
+    #345bc7 15%,
+    #141b41 61.03%,
+    #2a49a1 100%
+  );
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -17,12 +23,12 @@
 .bg-racs-projects-hero {
   background-color: #ffffff;
   background-image: radial-gradient(
-      120% 120% at 85% 0%,
-      rgba(52, 91, 199, 0.95) 0%,
-      rgba(52, 91, 199, 0.35) 35%,
-      rgba(52, 91, 199, 0.05) 70%,
-      rgba(52, 91, 199, 0) 100%
-    );
+    120% 120% at 85% 0%,
+    rgba(52, 91, 199, 0.95) 0%,
+    rgba(52, 91, 199, 0.35) 35%,
+    rgba(52, 91, 199, 0.05) 70%,
+    rgba(52, 91, 199, 0) 100%
+  );
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -31,19 +37,19 @@
 .bg-racs-services-hero {
   background-color: #ffffff;
   background-image: radial-gradient(
-      120% 120% at 85% 0%,
-      rgba(52, 91, 199, 0.95) 0%,
-      rgba(52, 91, 199, 0.35) 35%,
-      rgba(52, 91, 199, 0.05) 70%,
-      rgba(52, 91, 199, 0) 100%
-    );
+    120% 120% at 85% 0%,
+    rgba(52, 91, 199, 0.95) 0%,
+    rgba(52, 91, 199, 0.35) 35%,
+    rgba(52, 91, 199, 0.05) 70%,
+    rgba(52, 91, 199, 0) 100%
+  );
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 /* Ongoing projects */
 .bg-racs-projects-ongoing {
-  background: linear-gradient(180deg, #9BAEE4 0%, #345BC7 72.3%, #3359C2 100%);
+  background: linear-gradient(180deg, #9baee4 0%, #345bc7 72.3%, #3359c2 100%);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -52,12 +58,12 @@
 .bg-racs-contact-hero {
   background-color: #ffffff;
   background-image: radial-gradient(
-      120% 120% at 85% 0%,
-      rgba(52, 91, 199, 0.95) 0%,
-      rgba(52, 91, 199, 0.35) 35%,
-      rgba(52, 91, 199, 0.05) 70%,
-      rgba(52, 91, 199, 0) 100%
-    );
+    120% 120% at 85% 0%,
+    rgba(52, 91, 199, 0.95) 0%,
+    rgba(52, 91, 199, 0.35) 35%,
+    rgba(52, 91, 199, 0.05) 70%,
+    rgba(52, 91, 199, 0) 100%
+  );
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -66,7 +72,11 @@
 .bg-racs-contact-touch {
   background-color: #141b41;
   background-image:
-    radial-gradient(100% 100% at 10% 100%, rgba(52, 91, 199, 0.4) 0%, rgba(52, 91, 199, 0) 65%),
+    radial-gradient(
+      100% 100% at 10% 100%,
+      rgba(52, 91, 199, 0.4) 0%,
+      rgba(52, 91, 199, 0) 65%
+    ),
     linear-gradient(
       180deg,
       #e7ecfb 0%,
