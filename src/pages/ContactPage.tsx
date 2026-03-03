@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Header } from '@/components/layout/Header';
 
 import coolingIcon from '@/assets/icons/services/cooling.svg';
 import buildingIcon from '@/assets/icons/services/building.svg';
@@ -29,10 +28,13 @@ const services: ServiceCard[] = [
   { id: 'data-centers', title: 'DATA CENTERS: SPECIFIC\nSERVICES', icon: datacenterIcon },
 ];
 
+const serviceOptions = [...services, { id: 'other', title: 'Other' }];
+
 export const ContactPage = (): JSX.Element => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [selectedService, setSelectedService] = useState('');
+  const [otherMessage, setOtherMessage] = useState('');
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
     event.preventDefault();
@@ -47,6 +49,9 @@ export const ContactPage = (): JSX.Element => {
       email: formData.get('email'),
       phone: formData.get('phone'),
       relatedService: formData.get('relatedService'),
+      ...(selectedService === 'other' && {
+        otherMessage: formData.get('otherMessage'),
+      }),
     };
 
     setIsSubmitting(true);
@@ -63,6 +68,7 @@ export const ContactPage = (): JSX.Element => {
 
       setSubmitStatus('success');
       setSelectedService('');
+      setOtherMessage('');
       form.reset();
     } catch {
       setSubmitStatus('error');
@@ -73,8 +79,6 @@ export const ContactPage = (): JSX.Element => {
 
   return (
     <div className="contact-page">
-      <Header contactColor="#0f4c81" />
-
       <section className="contact-hero bg-racs-contact-hero" aria-labelledby="contact-hero-title">
         <div className="contact-hero-inner">
           <h1 id="contact-hero-title" className="contact-hero-title">
@@ -153,13 +157,27 @@ export const ContactPage = (): JSX.Element => {
                   <option value="" disabled>
                     Related Services
                   </option>
-                  {services.map((s) => (
+                  {serviceOptions.map((s) => (
                     <option key={s.id} value={s.id}>
-                      {s.title.replace('\n', ' ')}
+                      {String(s.title).replace(/\n/g, ' ')}
                     </option>
                   ))}
                 </select>
               </label>
+
+              {selectedService === 'other' ? (
+                <label>
+                  <textarea
+                    name="otherMessage"
+                    placeholder="Please describe your inquiry..."
+                    value={otherMessage}
+                    onChange={(e) => setOtherMessage(e.target.value)}
+                    rows={4}
+                    required
+                    className="contact-touch-form-textarea"
+                  />
+                </label>
+              ) : null}
 
               <div className="contact-touch-form-bottom">
                 <p>

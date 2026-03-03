@@ -19,6 +19,18 @@
   background-size: cover;
 }
 
+@media (max-width: 960px) {
+  .bg-racs-home-radial {
+    background: linear-gradient(
+      180deg,
+      #fff 6.88%,
+      #345bc7 21%,
+      #141b41 61.03%,
+      #2a49a1 100%
+    );
+  }
+}
+
 /* Projects hero background – white with intense blue top-right */
 .bg-racs-projects-hero {
   background-color: #ffffff;

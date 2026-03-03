@@ -15,6 +15,7 @@ const serviceOptions = [
   { id: "sustainability", label: "Sustainability & Decarbonization" },
   { id: "digitalization", label: "Digitalization & Smart Systems" },
   { id: "data-centers", label: "Data Centers-Specific Services" },
+  { id: "other", label: "Other" },
 ];
 
 const SCENE_URL =
@@ -98,6 +99,7 @@ export const HomeConsultSection = (): JSX.Element => {
     "idle" | "success" | "error"
   >("idle");
   const [selectedService, setSelectedService] = useState("");
+  const [otherMessage, setOtherMessage] = useState("");
 
   const handleSubmit = async (
     event: React.FormEvent<HTMLFormElement>,
@@ -115,6 +117,9 @@ export const HomeConsultSection = (): JSX.Element => {
       email: formData.get("email"),
       phone: formData.get("phone"),
       relatedService: formData.get("relatedService"),
+      ...(selectedService === "other" && {
+        otherMessage: formData.get("otherMessage"),
+      }),
     };
 
     setIsSubmitting(true);
@@ -131,6 +136,7 @@ export const HomeConsultSection = (): JSX.Element => {
 
       setSubmitStatus("success");
       setSelectedService("");
+      setOtherMessage("");
       form.reset();
     } catch {
       setSubmitStatus("error");
@@ -198,6 +204,20 @@ export const HomeConsultSection = (): JSX.Element => {
                 ))}
               </select>
             </label>
+
+            {selectedService === "other" ? (
+              <label>
+                <textarea
+                  name="otherMessage"
+                  placeholder="Please describe your inquiry..."
+                  value={otherMessage}
+                  onChange={(e) => setOtherMessage(e.target.value)}
+                  rows={4}
+                  required
+                  className="home-consult-form-textarea"
+                />
+              </label>
+            ) : null}
 
             <div className="home-consult-form-bottom">
               <p>

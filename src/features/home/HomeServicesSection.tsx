@@ -22,7 +22,7 @@ const serviceCards: ServiceCard[] = [
   { title: "Cooling<br>as a Service", icon: leafCycleIcon },
   { title: "Modeling<br>Services", icon: modelingIcon },
   { title: "Sustainability &<br>Decarbonization", icon: sustainabilityIcon },
-  { title: "Digitalization &<br> Smart Systems", icon: digitalIcon },
+  { title: "Digitalization", icon: digitalIcon },
   { title: "Data Centers-Specific<br>Services", icon: datacenterIcon },
 ];
 
@@ -31,7 +31,7 @@ export const HomeServicesSection = (): JSX.Element => {
     <section className="home-services" aria-label="Our services">
       <CustomCursor targetSelector=".home-services-card" />
       <div className=" home-services-content">
-        <h2 className="container home-services-title">OUR SERVICES</h2>
+        <h2 className="container home-services-title">SERVICES</h2>
 
         <div className="home-services-grid">
           {serviceCards.map((card) => (

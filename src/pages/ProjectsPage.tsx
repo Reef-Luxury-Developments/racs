@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { Header } from '@/components/layout/Header';
 
 import project1 from '@/assets/icons/projects/al-maryah-waterfront.jpg';
 import project2 from '@/assets/icons/projects/Al Hamza mall.jpg';
@@ -219,8 +218,6 @@ export const ProjectsPage = (): JSX.Element => {
 
   return (
     <div className="projects-page">
-      <Header contactColor="#0f4c81" />
-
       <section className="projects-hero bg-racs-projects-hero" aria-labelledby="projects-hero-title">
         <div className="projects-hero-inner">
           <h1 id="projects-hero-title" className="projects-hero-title">

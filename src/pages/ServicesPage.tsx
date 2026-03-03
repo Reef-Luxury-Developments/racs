@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { Header } from '@/components/layout/Header';
 
 import coolingIcon from '@/assets/icons/services/cooling.svg';
 import buildingIcon from '@/assets/icons/services/building.svg';
@@ -211,8 +210,6 @@ export const ServicesPage = (): JSX.Element => {
 
   return (
     <div className="services-page">
-      <Header contactColor="#0f4c81" />
-
       <section className="services-hero bg-racs-services-hero" aria-labelledby="services-hero-title">
         <div className="services-hero-inner">
           <h1 id="services-hero-title" className="services-hero-title">

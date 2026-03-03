@@ -1,22 +1,23 @@
-import { Header } from '@/components/layout/Header';
-import { TemperatureWidget } from '@/components/common/TemperatureWidget';
+import { TemperatureWidget } from "@/components/common/TemperatureWidget";
 
-import bgImage from '@/assets/images/hero-bg.png';
+import bgImage from "@/assets/images/hero-bg.png";
 
 export const HomeHero = (): JSX.Element => {
   return (
-    <section className="home-hero" style={{ backgroundImage: `url(${bgImage})` }}>
-      <Header className="site-header--hero" contactColor="#ffffff" />
-
+    <section
+      className="home-hero"
+      style={{ backgroundImage: `url(${bgImage})` }}
+    >
       <div className="container home-hero-content">
         <h1 className="home-hero-title">
-          RACS TURNS EVERY <strong>OUTDOOR SPACE</strong> INTO
-          A YEAR-ROUND <strong>COMFORT ZONE</strong> THROUGH
-          ADVANCED OUTDOOR COOLING.
+          RACS TURNS EVERY <strong>OUTDOOR SPACE</strong> INTO A YEAR-ROUND{" "}
+          <strong>COMFORT ZONE</strong> THROUGH ADVANCED OUTDOOR COOLING.
         </h1>
 
         <p className="home-hero-description">
-          We design, install, and maintain high-performance cooling systems for villas, restaurants, hotels, and large outdoor spaces, engineered for extreme Gulf weather conditions.
+          We design, install, Test, commission​, and maintain high-performance
+          cooling systems for villas, restaurants, hotels, and large outdoor
+          spaces, engineered for extreme Gulf weather conditions.
         </p>
 
         <a className="home-hero-cta" href="#company-profile">
