@@ -10,6 +10,7 @@ const SERVICE_LABELS = {
   'sustainability': 'Sustainability & Decarbonization',
   'digitalization': 'Digitalization & Smart Systems',
   'data-centers': 'Data Centers-Specific Services',
+  other: 'Other',
 };
 
 export default async function handler(req, res) {
@@ -18,7 +19,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method Not Allowed' });
   }
 
-  const { name, company, email, phone, relatedService } = req.body || {};
+  const { name, company, email, phone, relatedService, otherMessage } = req.body || {};
 
   if (!name || !email || !phone) {
     return res.status(400).json({ error: 'Missing required fields' });
@@ -33,6 +34,16 @@ export default async function handler(req, res) {
   }
 
   const serviceName = SERVICE_LABELS[relatedService] || relatedService || '-';
+  const messageLines = [
+    `Name: ${name}`,
+    `Company: ${company || '-'}`,
+    `Email: ${email}`,
+    `Phone: ${phone}`,
+    `Related Service: ${serviceName}`,
+  ];
+  if (relatedService === 'other' && otherMessage) {
+    messageLines.push(`Message: ${otherMessage}`);
+  }
 
   try {
     const transporter = nodemailer.createTransport({
@@ -50,13 +61,7 @@ export default async function handler(req, res) {
       to: 'info@reefacs.ae',
       cc: 'it.reef@reefdevelopments.ae',
       subject: 'New consultation request from RACS website',
-      text: [
-        `Name: ${name}`,
-        `Company: ${company || '-'}`,
-        `Email: ${email}`,
-        `Phone: ${phone}`,
-        `Related Service: ${serviceName}`,
-      ].join('\n'),
+      text: messageLines.join('\n'),
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #104b86; border-bottom: 2px solid #104b86; padding-bottom: 12px;">
@@ -87,6 +92,12 @@ export default async function handler(req, res) {
               <td style="padding: 10px 12px; font-weight: bold; color: #334155; border-bottom: 1px solid #e2e8f0;">Related Service</td>
               <td style="padding: 10px 12px; color: #1e293b; border-bottom: 1px solid #e2e8f0;">${serviceName}</td>
             </tr>
+            ${relatedService === 'other' && otherMessage ? `
+            <tr>
+              <td style="padding: 10px 12px; font-weight: bold; color: #334155; border-bottom: 1px solid #e2e8f0;">Message</td>
+              <td style="padding: 10px 12px; color: #1e293b; border-bottom: 1px solid #e2e8f0; white-space: pre-wrap;">${String(otherMessage).replace(/</g, '&lt;').replace(/>/g, '&gt;')}</td>
+            </tr>
+            ` : ''}
           </table>
           <p style="margin-top: 24px; font-size: 12px; color: #94a3b8;">
             Submitted via reefacs.ae
