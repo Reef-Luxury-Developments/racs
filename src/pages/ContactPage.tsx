@@ -10,7 +10,6 @@ import modelingIcon from '@/assets/icons/services/modeling.svg';
 import sustainabilityIcon from '@/assets/icons/services/sustainability.svg';
 import digitalIcon from '@/assets/icons/services/digital.svg';
 import datacenterIcon from '@/assets/icons/services/datacenter.svg';
-import logo from '@/assets/images/logo.png';
 
 type ServiceCard = {
   id: string;
@@ -186,36 +185,6 @@ export const ContactPage = (): JSX.Element => {
           </div>
         </div>
       </section>
-
-      <footer className="contact-footer">
-        <div className="contact-footer-inner">
-          <div className="contact-footer-brand">
-            <img src={logo} alt="RACS logo" className="contact-footer-logo" />
-            <span className="contact-footer-brand-name">RACS</span>
-          </div>
-
-          <div className="contact-footer-links">
-            <h4>QUICK LINKS</h4>
-            <ul>
-              <li><a href="/">Home</a></li>
-              <li><a href="/about">About</a></li>
-              <li><a href="/services">Services</a></li>
-              <li><a href="/projects">Projects</a></li>
-              <li><a href="/contact">Contact Us</a></li>
-              <li><a href="/#faq">FAQ</a></li>
-            </ul>
-          </div>
-
-          <div className="contact-footer-contact">
-            <h4>CONTACT US</h4>
-            <ul>
-              <li><a href="mailto:info@reefacs.ae">info@reefacs.ae</a></li>
-              <li><a href="tel:+97144547894">+971-4-454-7894</a></li>
-              <li>Office Auto Pro,<br />1st Floor, Dubai Office E.Ast, UAE</li>
-            </ul>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 };

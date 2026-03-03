@@ -1,21 +1,25 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from "react";
 
-import consultIcon from '@/assets/icons/services/consult.svg';
+import consultIcon from "@/assets/icons/services/consult.svg";
 
 const serviceOptions = [
-  { id: 'outdoor-cooling', label: 'Outdoor Cooling Design and Build' },
-  { id: 'engineering-services', label: 'Engineering Services for Existing Buildings' },
-  { id: 'mep-services', label: 'MEP Services for New Buildings' },
-  { id: 'district-cooling', label: 'District-Cooling Solutions' },
-  { id: 'cooling-as-service', label: 'Cooling as a Service' },
-  { id: 'modeling', label: 'Modeling Services' },
-  { id: 'sustainability', label: 'Sustainability & Decarbonization' },
-  { id: 'digitalization', label: 'Digitalization & Smart Systems' },
-  { id: 'data-centers', label: 'Data Centers-Specific Services' },
+  { id: "outdoor-cooling", label: "Outdoor Cooling Design and Build" },
+  {
+    id: "engineering-services",
+    label: "Engineering Services for Existing Buildings",
+  },
+  { id: "mep-services", label: "MEP Services for New Buildings" },
+  { id: "district-cooling", label: "District-Cooling Solutions" },
+  { id: "cooling-as-service", label: "Cooling as a Service" },
+  { id: "modeling", label: "Modeling Services" },
+  { id: "sustainability", label: "Sustainability & Decarbonization" },
+  { id: "digitalization", label: "Digitalization & Smart Systems" },
+  { id: "data-centers", label: "Data Centers-Specific Services" },
 ];
 
-const SCENE_URL = 'https://prod.spline.design/gXcQP6l55ruwhGI0/scene.splinecode';
-const OBJECT_ID = '4d4ea24f-5f17-45f8-a3b6-427bea394694';
+const SCENE_URL =
+  "https://prod.spline.design/gXcQP6l55ruwhGI0/scene.splinecode";
+const OBJECT_ID = "4d4ea24f-5f17-45f8-a3b6-427bea394694";
 const BASE_SIZE = 600;
 
 type SplineRuntime = {
@@ -46,7 +50,7 @@ export const HomeConsultSection = (): JSX.Element => {
     const initSpline = async (): Promise<void> => {
       try {
         const runtimeModule = (await import(
-          /* @vite-ignore */ 'https://unpkg.com/@splinetool/runtime@latest/build/runtime.js'
+          /* @vite-ignore */ "https://unpkg.com/@splinetool/runtime@latest/build/runtime.js"
         )) as SplineRuntime;
 
         if (!isMounted) return;
@@ -59,7 +63,7 @@ export const HomeConsultSection = (): JSX.Element => {
         const object3d = app.findObjectById(OBJECT_ID);
 
         scaleCanvas();
-        window.addEventListener('resize', scaleCanvas);
+        window.addEventListener("resize", scaleCanvas);
         setIsSplineReady(true);
 
         if (!object3d) return;
@@ -84,16 +88,20 @@ export const HomeConsultSection = (): JSX.Element => {
 
     return () => {
       isMounted = false;
-      window.removeEventListener('resize', scaleCanvas);
+      window.removeEventListener("resize", scaleCanvas);
       if (animationFrameId) cancelAnimationFrame(animationFrameId);
     };
   }, []);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  const [selectedService, setSelectedService] = useState('');
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
+  const [selectedService, setSelectedService] = useState("");
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
+  const handleSubmit = async (
+    event: React.FormEvent<HTMLFormElement>,
+  ): Promise<void> => {
     event.preventDefault();
 
     if (isSubmitting) return;
@@ -102,30 +110,30 @@ export const HomeConsultSection = (): JSX.Element => {
     const formData = new FormData(form);
 
     const payload = {
-      name: formData.get('name'),
-      company: formData.get('company'),
-      email: formData.get('email'),
-      phone: formData.get('phone'),
-      relatedService: formData.get('relatedService'),
+      name: formData.get("name"),
+      company: formData.get("company"),
+      email: formData.get("email"),
+      phone: formData.get("phone"),
+      relatedService: formData.get("relatedService"),
     };
 
     setIsSubmitting(true);
-    setSubmitStatus('idle');
+    setSubmitStatus("idle");
 
     try {
-      const response = await fetch('/api/send-email', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
 
-      if (!response.ok) throw new Error('Request failed');
+      if (!response.ok) throw new Error("Request failed");
 
-      setSubmitStatus('success');
-      setSelectedService('');
+      setSubmitStatus("success");
+      setSelectedService("");
       form.reset();
     } catch {
-      setSubmitStatus('error');
+      setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
     }
@@ -133,11 +141,17 @@ export const HomeConsultSection = (): JSX.Element => {
 
   return (
     <section className="home-consult" aria-label="Consult with our specialists">
-      <div className="container home-consult-grid">
+      <div className=" home-consult-grid">
         <div className="home-consult-visual">
           <div ref={wrapperRef} className="spline-wrapper">
             <canvas ref={canvasRef} id="canvas3d" width={600} height={600} />
-            {!isSplineReady ? <img src={consultIcon} alt="Consult graphic" className="consult-fallback" /> : null}
+            {!isSplineReady ? (
+              <img
+                src={consultIcon}
+                alt="Consult graphic"
+                className="consult-fallback"
+              />
+            ) : null}
           </div>
         </div>
 
@@ -171,7 +185,7 @@ export const HomeConsultSection = (): JSX.Element => {
                 name="relatedService"
                 value={selectedService}
                 onChange={(e) => setSelectedService(e.target.value)}
-                className={selectedService ? 'has-value' : ''}
+                className={selectedService ? "has-value" : ""}
                 required
               >
                 <option value="" disabled>
@@ -187,20 +201,21 @@ export const HomeConsultSection = (): JSX.Element => {
 
             <div className="home-consult-form-bottom">
               <p>
-                By submitting, you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.
+                By submitting, you agree to our <a href="#">Terms</a> and{" "}
+                <a href="#">Privacy Policy</a>.
               </p>
               <button type="submit" disabled={isSubmitting}>
-                {isSubmitting ? 'Sending…' : 'Submit'}
+                {isSubmitting ? "Sending…" : "Submit"}
               </button>
             </div>
 
-            {submitStatus === 'success' ? (
+            {submitStatus === "success" ? (
               <p className="home-consult-form-status home-consult-form-status--success">
                 Thank you. We will contact you shortly.
               </p>
             ) : null}
 
-            {submitStatus === 'error' ? (
+            {submitStatus === "error" ? (
               <p className="home-consult-form-status home-consult-form-status--error">
                 Something went wrong. Please try again.
               </p>

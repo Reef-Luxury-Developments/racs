@@ -10,7 +10,7 @@ const benefits = [
 const metrics = [
   { end: 300, suffix: '+ KTR', label: 'Cooling Delivered' },
   { end: 30, suffix: '+', label: 'Projects Completed' },
-  { end: 15000, suffix: '+ M2', label: 'Sqm Outdoor Area Cooled' },
+  { end: 15, suffix: 'K+ M²', label: 'Outdoor Area Cooled' },
   { end: 30, suffix: '+', label: 'Engineers & Project Management' },
   { end: 10, label: 'Simulation Experts' },
 ];
@@ -19,8 +19,8 @@ export const HomePerformanceSection = (): JSX.Element => {
   return (
     <>  <section className="container trusted-section trusted-section--hero" id="company-profile">
     <h2>
-      <span className="trusted-section-line trusted-section-line--light">TRUSTED BY PROPERTY</span>{' '}
-      <span className="trusted-section-line trusted-section-line--dark">OWNERS, HOSPITALITY LEADERS &amp; DEVELOPERS</span>
+      <span className="trusted-section-line trusted-section-line--light">TRUSTED BY </span>{' '}
+      <span className="trusted-section-line trusted-section-line--dark">PROPERTY OWNERS,<br />HOSPITALITY LEADERS &amp; DEVELOPERS</span>
     </h2>
   </section>
   <section className="home-performance" aria-label="Performance highlights">
