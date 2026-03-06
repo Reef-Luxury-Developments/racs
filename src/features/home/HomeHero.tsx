@@ -20,7 +20,13 @@ export const HomeHero = (): JSX.Element => {
           spaces, engineered for extreme Gulf weather conditions.
         </p>
 
-        <a className="home-hero-cta" href="#company-profile">
+        <a
+          className="home-hero-cta"
+          href="/RACS-Company-Profile.pdf"
+          download
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Download Company Profile
         </a>
       </div>

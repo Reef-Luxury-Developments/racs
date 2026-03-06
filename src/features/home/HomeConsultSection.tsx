@@ -164,7 +164,13 @@ export const HomeConsultSection = (): JSX.Element => {
         <div className="home-consult-content">
           <h2>CONSULT WITH OUR SPECIALISTS</h2>
 
-          <a href="#" className="home-consult-download-btn">
+          <a
+            className="home-consult-download-btn"
+            href="/RACS-Company-Profile.pdf"
+            download
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Download Company Profile
           </a>
 
