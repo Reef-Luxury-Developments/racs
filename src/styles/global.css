@@ -1,3 +1,7 @@
+@import "tailwindcss";
+@source inline("w-20");
+@source inline("mx-auto");
+
 :root {
   --text-primary: #114d88;
   --text-secondary: #235a91;

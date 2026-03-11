@@ -96,7 +96,6 @@ export const AboutPage = (): JSX.Element => {
             </p>
           </div>
         </div>
-
       </section>
 
       <section
@@ -104,11 +103,7 @@ export const AboutPage = (): JSX.Element => {
         aria-label="Our mission and vision"
       >
         <article className="about-values-row">
-          <h2>
-            Our
-            <br />
-            Mission
-          </h2>
+          <h2>Mission</h2>
           <p>
             We are committed to safely delivering world-class projects by
             providing integrated design and engineering solutions in outdoor
@@ -120,11 +115,7 @@ export const AboutPage = (): JSX.Element => {
         </article>
 
         <article className="about-values-row">
-          <h2>
-            Our
-            <br />
-            Vision
-          </h2>
+          <h2>Vision</h2>
           <p>
             RACS envisions transforming how people interact with cooling
             solutions by setting new industry standards through smart
@@ -197,7 +188,6 @@ export const AboutPage = (): JSX.Element => {
           Speak to an Expert
         </Link>
       </section>
-
     </div>
   );
 };
